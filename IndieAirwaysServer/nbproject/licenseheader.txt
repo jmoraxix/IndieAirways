@@ -1,0 +1,14 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Programacion Concurrente Cliente Servidor
+${licensePrefix}
+${licensePrefix}Emilio Evans Rodriguez
+${licensePrefix}Jose David Mora Loria
+${licensePrefix}Carlos Oreamuno Alfaro
+${licensePrefix}
+${licensePrefix}Tercer cuatrimestre, 2017
+${licensePrefix}Ulacit
+<#if licenseLast??>
+${licenseLast}
+</#if>
