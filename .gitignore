@@ -22,3 +22,6 @@
 hs_err_pid*
 /IndieAirwaysServer/nbproject/private/
 /IndieAirwaysClient/nbproject/private/
+/Common/nbproject/private/
+/Common/build/
+/IndieAirwaysCommon/nbproject/private/
