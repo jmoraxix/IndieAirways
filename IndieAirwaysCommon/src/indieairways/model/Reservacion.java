@@ -8,12 +8,12 @@
 * Tercer cuatrimestre, 2017
 * Ulacit
  */
-package model;
+package indieairways.model;
 
 /**
  *
  * @author emilioevans
  */
-public class Vuelo {
+public class Reservacion {
 
 }

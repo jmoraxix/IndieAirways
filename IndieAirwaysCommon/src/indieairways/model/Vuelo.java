@@ -8,19 +8,12 @@
 * Tercer cuatrimestre, 2017
 * Ulacit
  */
-package model;
+package indieairways.model;
 
 /**
  *
  * @author emilioevans
  */
-public class Flightbooking {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class Vuelo {
 
 }

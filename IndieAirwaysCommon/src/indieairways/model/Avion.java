@@ -8,7 +8,7 @@
 * Tercer cuatrimestre, 2017
 * Ulacit
  */
-package model;
+package indieairways.model;
 
 /**
  *

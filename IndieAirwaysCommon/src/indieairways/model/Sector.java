@@ -8,14 +8,16 @@
 * Tercer cuatrimestre, 2017
 * Ulacit
  */
-package model;
+package indieairways.model;
 
 /**
  *
  * @author emilioevans
  */
 public enum Sector {
-    first_class("First Class", 0.40), business_class("Business Class", 0.20), economy_class("Economy Class", 0.05);
+
+    FIRST_CLASS("First Class", 0.40), BUSINESS_CLASS("Business Class", 0.20), ECONOMY_CLASS("Economy Class", 0.05);
+
     private String name;
     private double cost;
 
@@ -42,7 +44,7 @@ public enum Sector {
 
     @Override
     public String toString() {
-        return "name=" + name + ", cost=" + cost;
+        return this.name;
     }
 
 }
