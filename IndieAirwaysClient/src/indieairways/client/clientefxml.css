@@ -1,0 +1,48 @@
+/*
+ * Empty Stylesheet file.
+ */
+.root {
+    -fx-background-image: url("../imagenes/background.jpg");
+}
+.img {
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+.titulo1 {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+.titulo2 {
+    -fx-font-size: 18px;
+}
+.contenido {
+
+    -fx-font-size: 12px;
+}
+.desactivado {
+
+}
+.button {
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+.btnSalaAdd {
+    -fx-text-fill: white;
+    -fx-background-color: lightseagreen;
+}
+.btnSalaRemove {
+    -fx-text-fill: white;
+    -fx-background-color: lightcoral;
+}
+.btnPrincipal {
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+}
+.btnPrincipal:hover {
+    -fx-background-color: linear-gradient(#2A5058, #61a2b1);
+}
