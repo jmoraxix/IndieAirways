@@ -27,8 +27,8 @@ import javafx.collections.ObservableList;
 public class Util {
 
     //Variables de las ventanas
-    public static int WIDTH = 650;
-    public static int HEIGHT = 550;
+    public static int WIDTH = 780;
+    public static int HEIGHT = 700;
 
     public static int SERVER_PORT = 2356;
     public static String SERVER_IP = "localhost";

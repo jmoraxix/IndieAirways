@@ -2,7 +2,7 @@
  * Empty Stylesheet file.
  */
 .root {
-    -fx-background-image: url("../imagenes/background.jpg");
+    -fx-background-image: url("imagenes/background.jpg");
 }
 .img {
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
