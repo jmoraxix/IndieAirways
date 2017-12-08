@@ -18,6 +18,9 @@ public class Aeropuerto {
 
     private String city, city_code, flight_code;
 
+    public Aeropuerto() {
+    }
+
     public Aeropuerto(String city, String city_code, String flight_code) {
         this.city = city;
         this.city_code = city_code;

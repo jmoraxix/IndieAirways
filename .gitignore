@@ -28,3 +28,5 @@ hs_err_pid*
 /IndieAirwaysClient/build/
 /IndieAirwaysCommon/build/
 /IndieAirwaysCommon/dist/
+/IndieAirwaysServer/dist/
+/IndieAirwaysServer/build/
