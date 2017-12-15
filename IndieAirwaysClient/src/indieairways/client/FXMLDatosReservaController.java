@@ -30,6 +30,7 @@ import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 //import javafx.scene.text.Text;
 //import javafx.stage.Stage;
@@ -38,18 +39,24 @@ import javax.swing.JOptionPane;
 
 public class FXMLDatosReservaController implements Initializable {
     
-    @FXML private Label label;
-    @FXML private Button bn2;
-    @FXML private ComboBox cBF;
-    @FXML private ComboBox cBTO;
-    @FXML private DatePicker dPF;
-    @FXML private DatePicker dPTO;
-    @FXML private RadioButton rBOW;
-    @FXML private RadioButton rBRT;
+    @FXML private Button bn2; //Boton de ok
+    @FXML private ComboBox cBF; //ComboBox From
+    @FXML private ComboBox cBTO; //ComboBoz To
+    @FXML private DatePicker dPF; //DatePicker From
+    @FXML private DatePicker dPTO; //DatePicker To
+    @FXML private RadioButton rBOW; //RadioButton One-Way
+    @FXML private RadioButton rBRT; //RadioButton Round Trip
+    @FXML private TextField tFLuggage; //TextField for quantity of luggage
+    @FXML private TextField tFPassan; //TExtField for quantity of passangers
+    @FXML private RadioButton rBEconomy; //Radio Button for Economy Class
+    @FXML private RadioButton rBBuis; //Radio Button for Buisness Class
+    @FXML private RadioButton rBFirClass; //Radio Button for First Class
     
     private IndieAirwaysClient application;
     
-    private final ToggleGroup tipoVueloB = new ToggleGroup();
+    private final ToggleGroup tipoVueloTG = new ToggleGroup();
+    private final ToggleGroup tipoClaseTG = new ToggleGroup();
+    
     private DateCell fromCell, toCell = null;
     private LocalDate fromDate, toDate = null;
     //private String pattern1 = "dd-MM";
@@ -57,14 +64,23 @@ public class FXMLDatosReservaController implements Initializable {
     private int tipoVuelo; //0 si es One-Way, 1 si es Round Trip 
     private String ciudadOrigen, ciudadDestino;
     private int ddF, ffF, ddT, ffT; //dias y mes de ida, dia y mes de venida.
+    private int tipoClase;
+    private int numPasajeros;
+    private int numMaletas;
     
     
     ObservableList<String> ciudades = FXCollections.observableArrayList("San Jose", "Tokyo", "Milan", "Barcelona", "Cairo");
     
     @FXML
+    private void handleOneWay(ActionEvent event){
+        //dPTO.disableProperty();
+        dPTO.setEditable(false);
+    }
+    
+    @FXML
     private void habdleBn2Action(ActionEvent event){
 
-        try{ //Errores que pueden ocurrir con las Check Boxes
+        try{ //Errores que pueden ocurrir con las Radio Button
             if(rBOW.isSelected())
                 tipoVuelo = 0;
             else if(rBRT.isSelected())
@@ -99,10 +115,23 @@ public class FXMLDatosReservaController implements Initializable {
         }catch(Exception e){
             
         }
+        
+        //Ponerle un maximo y excepcion en el caso que no sea un numero
+        numPasajeros = Integer.parseInt( tFPassan.getText() ) ;
+        numMaletas = Integer.parseInt( tFLuggage.getText() );
+        
+        if(rBEconomy.isSelected())
+            tipoClase = 0;
+        else if(rBFirClass.isSelected())
+            tipoClase = 1;
+        else if(rBBuis.isSelected())
+            tipoClase = 2;
+        
        
         System.out.println("Tipo de vuelo es " + tipoVuelo + "\nCiudad Origen: " + ciudadOrigen + 
                 "\nCiudad Destino: " + ciudadDestino + "\nFecha Salida: " + fromDate 
-                + "\nFecha de Regreso: " + toDate);
+                + "\nFecha de Regreso: " + toDate + "\nNumero de pasajeros: " + numPasajeros
+                + "\nNumero de maletas: " + numMaletas + "\nTipo de Clase: " + tipoClase);
         
         
     }
@@ -130,8 +159,12 @@ public class FXMLDatosReservaController implements Initializable {
         cBF.getItems().addAll(ciudades);
         cBTO.getItems().addAll(ciudades);
         
-        rBOW.setToggleGroup(tipoVueloB);
-        rBRT.setToggleGroup(tipoVueloB);
+        rBOW.setToggleGroup(tipoVueloTG);
+        rBRT.setToggleGroup(tipoVueloTG);
+        
+        rBEconomy.setToggleGroup(tipoClaseTG);
+        rBBuis.setToggleGroup(tipoClaseTG);
+        rBFirClass.setToggleGroup(tipoClaseTG);
     }    
     
 }
