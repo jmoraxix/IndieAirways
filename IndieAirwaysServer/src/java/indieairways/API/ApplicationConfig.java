@@ -8,7 +8,7 @@
  * Tercer cuatrimestre, 2017
  * Ulacit
  */
-package API;
+package indieairways.API;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;
@@ -34,7 +34,8 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(API.UserResource.class);
+        resources.add(indieairways.API.LoginResource.class);
+        resources.add(indieairways.API.UserResources.class);
     }
     
 }
