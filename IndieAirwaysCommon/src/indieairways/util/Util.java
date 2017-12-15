@@ -65,7 +65,14 @@ public class Util {
 //        System.out.println(salas);
 //        return salas;
 //    }
-}
+    
+    
+    public void generarDatos(){
+        
+    }
+    
+    
+} //Fin de la clase
 
 //class DepartmentInstanceCreator implements InstanceCreator<Reservacion> {
 //

@@ -21,6 +21,7 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import indieairways.model.Reservacion;
 
 /**
  *
@@ -34,6 +35,8 @@ public class IndieAirwaysClient extends Application {
 
     //Variables del cliente TCP
 //    private Cliente cliente;
+    private static Reservacion reservacion = new Reservacion();
+    
     /**
      * @param args the command line arguments
      */
