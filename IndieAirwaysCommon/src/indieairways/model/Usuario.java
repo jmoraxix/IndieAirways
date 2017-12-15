@@ -19,6 +19,9 @@ public class Usuario {
     private String user, password, email, name, lastname, birthday;
     private int id;
 
+    public Usuario() {
+    }
+
     public Usuario(String user, String password, String email, String name, String lastname, String birthday, int id) {
         this.user = user;
         this.password = password;
