@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservaindieairways.FXMLReservaOneWayController">
+   <children>
+      <Button fx:id="bBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="bNext" layoutX="539.0" layoutY="359.0" mnemonicParsing="false" text="Next" />
+      <Label layoutX="233.0" layoutY="13.0" text="Reservation">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="39.0" layoutY="111.0" text="Departure Date" />
+      <Label layoutX="39.0" layoutY="154.0" text="Departure Time" />
+      <Label layoutX="50.0" layoutY="200.0" prefHeight="17.0" prefWidth="74.0" text="Arrival Time" />
+      <Label layoutX="53.0" layoutY="251.0" text="Flight Time" />
+      <Label layoutX="71.0" layoutY="322.0" text="Price" />
+      <Label fx:id="lPrice" layoutX="167.0" layoutY="322.0" text="Label" />
+      <Label fx:id="lDepDate" layoutX="216.0" layoutY="111.0" text="Label" />
+      <Label fx:id="lDepTime" layoutX="216.0" layoutY="154.0" text="Label" />
+      <Label fx:id="lArriTime" layoutX="216.0" layoutY="200.0" text="Label" />
+      <Label fx:id="lFliTime" layoutX="216.0" layoutY="251.0" text="Label" />
+   </children>
+</AnchorPane>

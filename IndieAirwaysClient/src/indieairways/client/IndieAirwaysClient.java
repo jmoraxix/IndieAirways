@@ -45,10 +45,11 @@ public class IndieAirwaysClient extends Application {
     public void start(Stage primaryStage) {
         try {
             stage = primaryStage;
-            stage.setTitle("Cine");
+            stage.setTitle("Indie Airways");
             stage.setMinWidth(WINDOW_WIDTH);
             stage.setMinHeight(WINDOW_HEIGHT);
-            gotoMenu();
+            //gotoLogin();
+            gotoVerReserva();
             primaryStage.show();
         } catch (Exception ex) {
             Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
@@ -57,6 +58,18 @@ public class IndieAirwaysClient extends Application {
         //Iniciando cliente TCP
 //        this.cliente = new Cliente(this);
 //        this.cliente.start();
+    }
+
+    /**
+     * Cambia el contenido de la ventana al menu principal
+     */
+    public void gotoLogin() {
+        try {
+            LoginController login = (LoginController) replaceSceneContent("Login.fxml");
+            login.setApp(this);
+        } catch (Exception ex) {
+            Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -74,13 +87,13 @@ public class IndieAirwaysClient extends Application {
     /**
      * Cambia el contenido de la ventana a la venta de las peliculas
      */
-    public void gotoVerPeliculas() {
-//        try {
-//            VerPeliculasController verPeliculas = (VerPeliculasController) replaceSceneContent("VerPeliculas.fxml");
-//            verPeliculas.setApp(this);
-//        } catch (Exception ex) {
-//            Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+    public void gotoVerReserva() {
+        try {
+            FXMLDatosReservaController verReserva1 = (FXMLDatosReservaController) replaceSceneContent("FXMLDatosReserva.fxml");
+            verReserva1.setApp(this);
+        } catch (Exception ex) {
+            Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
+       }
     }
 
     private Initializable replaceSceneContent(String fxml) throws Exception {
@@ -100,12 +113,4 @@ public class IndieAirwaysClient extends Application {
         return (Initializable) loader.getController();
     }
 
-    //Getters & Setters
-    /**
-     *
-     * @return Cliente Retorna la lista de clientes
-     */
-//    public Cliente getCliente() {
-//        return cliente;
-//    }
 }

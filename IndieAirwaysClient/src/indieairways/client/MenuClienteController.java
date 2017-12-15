@@ -45,7 +45,7 @@ public class MenuClienteController implements Initializable {
         btnPeliculas.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)
                 -> {
             System.out.println("btnPeliculas");
-            application.gotoVerPeliculas();
+            //application.gotoVerPeliculas();
         });
         btnComida.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)
                 -> {
