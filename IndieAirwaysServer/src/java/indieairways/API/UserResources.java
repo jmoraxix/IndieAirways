@@ -11,13 +11,14 @@
 package indieairways.API;
 
 import com.google.gson.Gson;
-import indieairways.model.Usuario;
+import indieairways.model.User;
 import indieairways.util.Util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -34,7 +35,7 @@ import javax.ws.rs.core.UriInfo;
  *
  * @author jmora
  */
-@Path("user")
+@Path("users")
 public class UserResources {
 
     @Context
@@ -53,7 +54,7 @@ public class UserResources {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getJson(@QueryParam("e") String email, @QueryParam("p") String password) {
+    public Response getJson(@QueryParam("u") String username, @QueryParam("p") String password) {
 
         // Generating MD5 password
         MessageDigest md = null;
@@ -63,8 +64,8 @@ public class UserResources {
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(UserResources.class.getName()).log(Level.SEVERE, null, ex);
         }
-        for (Usuario i : Util.LISTA_USURIOS) {
-            if (i.getEmail().equals(email)) {
+        for (User i : Util.USER_LIST) {
+            if (i.getEmail().equals(username)) {
                 if (i.getPassword().equals(md.digest())) {
                     return Response.ok(new Gson().toJson(i)).build();
                 }
@@ -83,10 +84,10 @@ public class UserResources {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response putJson(String content) {
 
-        Usuario usuario = new Gson().fromJson(content, Usuario.class);
+        User usuario = new Gson().fromJson(content, User.class);
 
-        for (Usuario u : Util.LISTA_USURIOS) {
-            if (u.getUser().equals(u.getUser())) {
+        for (User u : Util.USER_LIST) {
+            if (u.getUsername().equals(u.getUsername())) {
                 u = usuario;
                 return Response.ok().build();
             }
@@ -104,9 +105,9 @@ public class UserResources {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response postJson(String content) {
 
-        Usuario usuario = new Gson().fromJson(content, Usuario.class);
+        User usuario = new Gson().fromJson(content, User.class);
 
-        if (usuario.getUser().isEmpty()) {
+        if (usuario.getUsername().isEmpty()) {
             return Response.status(400).build();
         }
 
@@ -122,8 +123,20 @@ public class UserResources {
             return Response.status(400).build();
         }
 
-        Util.LISTA_USURIOS.add(usuario);
+        Util.USER_LIST.add(usuario);
 
+        return Response.ok().build();
+    }
+    
+    /**
+     * DELETE method for deleting users
+     *
+     * @param content representation for the resource
+     */
+    @DELETE
+    public Response deleteJson(@QueryParam("s") String session, @QueryParam("u") String username) {
+        
+        // @TODO Add delete method to UserResources
         return Response.ok().build();
     }
 }
