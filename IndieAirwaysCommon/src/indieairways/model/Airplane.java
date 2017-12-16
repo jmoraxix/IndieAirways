@@ -15,24 +15,28 @@ package indieairways.model;
  * @author emilioevans
  */
 public enum Airplane {
-  BIG_AIRPLANE("B777",8,16,32,56), AIRPLANE("B767-300",6,12,24,38),LITTLE_AIRPLANE("A320",4,8,16,28);
-  private String airplaneName;
-  private int seatsFirst, seatsBusiness, seatEconomy, total;
+    BIG_AIRPLANE("B777", 8, 16, 32), AIRPLANE("B767-300", 6, 12, 24), LITTLE_AIRPLANE("A320", 4, 8, 16);
+    
+    private static int AIRPLANES = 0;
+    
+    private String airplaneCode;
+    private String airplaneName;
+    private int seatsFirst, seatsBusiness, seatEconomy;
 
-    private Airplane(String airplaneName, int seatsFirst, int seatsBusiness, int seatEconomy, int total) {
+    private Airplane(String airplaneName, int seatsFirst, int seatsBusiness, int seatEconomy) {
+        this.airplaneCode = getNextCode();
         this.airplaneName = airplaneName;
         this.seatsFirst = seatsFirst;
         this.seatsBusiness = seatsBusiness;
         this.seatEconomy = seatEconomy;
-        this.total=total;
+    }
+
+    public String getAirplaneCode() {
+        return airplaneCode;
     }
 
     public String getAirplaneName() {
         return airplaneName;
-    }
-
-    public void setAirplaneName(String airplaneName) {
-        this.airplaneName = airplaneName;
     }
 
     public int getSeatsFirst() {
@@ -46,16 +50,17 @@ public enum Airplane {
     public int getSeatEconomy() {
         return seatEconomy;
     }
-    public int getTotal(){
-        return total;
+
+    public int getTotal() {
+        return this.seatEconomy + this.seatsBusiness + this.seatsFirst;
+    }
+    
+    private String getNextCode(){
+        return String.valueOf(++AIRPLANES);
     }
 
     @Override
     public String toString() {
-        return "Airplane{" + "airplaneName=" + airplaneName + ", seatsFirst=" + seatsFirst + ", seatsBusiness=" + seatsBusiness + ", seatEconomy=" + seatEconomy + ", total=" + total + '}';
+        return "Airplane{" + "airplaneCode=" + airplaneCode + ", airplaneName=" + airplaneName + ", seatsFirst=" + seatsFirst + ", seatsBusiness=" + seatsBusiness + ", seatEconomy=" + seatEconomy + '}';
     }
-
-
-  
-
 }

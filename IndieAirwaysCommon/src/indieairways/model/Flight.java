@@ -15,23 +15,27 @@ package indieairways.model;
  * @author emilioevans
  */
 public class Flight {
- private Airplane airplane;
- private String flight_code;
- private Airport arrival, departures;
- private String departureTime, duration, date, seat;
+
+    private static int FLIGHTS = 0;
+
+    private String flightCode;
+    private Airplane airplane;
+    private Airport arrival, departure;
+    private String date, departureTime, duration;
+    private int cost;
 
     public Flight() {
     }
 
-    public Flight(final Airplane airplane, String flight_code,final Airport arrival,final Airport departures, String departureTime, String duration, String date, String seat) {
+    public Flight(Airplane airplane, final Airport arrival, final Airport departures, String date, String departureTime, String duration, int cost) {
+        this.flightCode = getNextCode();
         this.airplane = airplane;
-        this.flight_code = flight_code;
         this.arrival = arrival;
-        this.departures = departures;
+        this.departure = departures;
         this.departureTime = departureTime;
         this.duration = duration;
         this.date = date;
-        this.seat = seat;
+        this.cost = cost;
     }
 
     public Airplane getAirplane() {
@@ -42,12 +46,12 @@ public class Flight {
         this.airplane = airplane;
     }
 
-    public String getFlight_code() {
-        return flight_code;
+    public String getFlightCode() {
+        return flightCode;
     }
 
-    public void setFlight_code(String flight_code) {
-        this.flight_code = flight_code;
+    public void setFlightCode(String flightCode) {
+        this.flightCode = flightCode;
     }
 
     public Airport getArrival() {
@@ -58,12 +62,12 @@ public class Flight {
         this.arrival = arrival;
     }
 
-    public Airport getDepartures() {
-        return departures;
+    public Airport getDeparture() {
+        return departure;
     }
 
-    public void setDepartures(Airport departures) {
-        this.departures = departures;
+    public void setDeparture(Airport departure) {
+        this.departure = departure;
     }
 
     public String getDepartureTime() {
@@ -90,13 +94,15 @@ public class Flight {
         this.date = date;
     }
 
-    public String getSeat() {
-        return seat;
+    public int getCost() {
+        return cost;
     }
 
-    public void setSeat(String seat) {
-        this.seat = seat;
+    public void setCost(int cost) {
+        this.cost = cost;
     }
-    
-    
+
+    private String getNextCode() {
+        return String.valueOf(++FLIGHTS);
+    }
 }

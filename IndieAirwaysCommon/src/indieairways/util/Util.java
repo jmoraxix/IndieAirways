@@ -12,11 +12,11 @@ package indieairways.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import indieairways.model.Aeropuerto;
-import indieairways.model.Avion;
-import indieairways.model.Reservacion;
-import indieairways.model.Usuario;
-import indieairways.model.Vuelo;
+import indieairways.model.Airplane;
+import indieairways.model.Airport;
+import indieairways.model.Flight;
+import indieairways.model.Reservation;
+import indieairways.model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -41,12 +41,12 @@ public class Util {
     }
 
     //Variables globales de la aplicación
-    public static Usuario CURRENT_USER = null;
-    public static ObservableList<Usuario> LISTA_USURIOS = FXCollections.observableArrayList();
-    public static ObservableList<Aeropuerto> LISTA_AEROPUERTOS = FXCollections.observableArrayList();
-    public static ObservableList<Avion> LISTA_AVIONES = FXCollections.observableArrayList();
-    public static ObservableList<Reservacion> LISTA_RESERVACIONES = FXCollections.observableArrayList();
-    public static ObservableList<Vuelo> LISTA_VUELOS = FXCollections.observableArrayList();
+    public static User CURRENT_USER = null;
+    public static ObservableList<User> USER_LIST = FXCollections.observableArrayList();
+    public static ObservableList<Airport> AIRPORT_LIST = FXCollections.observableArrayList();
+    public static ObservableList<Airplane> AIRPLANE_LIST = FXCollections.observableArrayList();
+    public static ObservableList<Reservation> RESERVATION_LIST = FXCollections.observableArrayList();
+    public static ObservableList<Flight> FLIGHT_LIST = FXCollections.observableArrayList();
 
 //    public static ObservableList<Sala> getSalas() {
 //        Util.LISTA_SALAS.add(new Sala(1, 50));
@@ -67,7 +67,7 @@ public class Util {
 //    }
     
     
-    public void generarDatos(){
+    public void generateData(){
         
     }
     

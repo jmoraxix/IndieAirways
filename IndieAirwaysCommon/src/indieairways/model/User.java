@@ -16,14 +16,14 @@ package indieairways.model;
  */
 public class User {
 
-    private String user, password, email, name, lastname, birthday;
+    private String username, password, email, name, lastname, birthday;
     private int id;
 
     public User() {
     }
 
     public User(String user, String password, String email, String name, String lastname, String birthday, int id) {
-        this.user = user;
+        this.username = user;
         this.password = password;
         this.email = email;
         this.name = name;
@@ -32,12 +32,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -90,7 +90,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "user=" + user + ", email=" + email + ", name=" + name + ", lastname=" + lastname + ", birthday=" + birthday + ", id=" + id;
+        return "user=" + username + ", email=" + email + ", name=" + name + ", lastname=" + lastname + ", birthday=" + birthday + ", id=" + id;
     }
 
 }

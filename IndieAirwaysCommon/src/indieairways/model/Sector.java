@@ -18,12 +18,20 @@ public enum Sector {
 
     FIRST_CLASS("First Class", 0.40), BUSINESS_CLASS("Business Class", 0.20), ECONOMY_CLASS("Economy Class", 0.05);
 
+    private static int SECTORS = 0;
+    
+    private String sectorCode;
     private String name;
     private double cost;
 
     private Sector(String name, double cost) {
+        this.sectorCode = getNextCode();
         this.name = name;
         this.cost = cost;
+    }
+
+    public String getSectorCode() {
+        return sectorCode;
     }
 
     public String getName() {
@@ -32,6 +40,10 @@ public enum Sector {
 
     public double getCost() {
         return cost;
+    }
+    
+    private String getNextCode(){
+        return String.valueOf(++SECTORS);
     }
 
     @Override

@@ -15,18 +15,22 @@ package indieairways.model;
  * @author emilioevans
  */
 public class Reservation {
+
+    private static int RESERVATIONS = 0;
+
+    private String reservationCode;
     private Flight flight;
-    private int tickets, luggage, totalPrice;
+    private int tickets, luggage;
     private String seats;
 
     public Reservation() {
     }
 
-    public Reservation(final Flight flight, int tickets, int luggage, int totalPrice, String seats) {
+    public Reservation(final Flight flight, int tickets, int luggage, String seats) {
+        this.reservationCode = getNextCode();
         this.flight = flight;
         this.tickets = tickets;
         this.luggage = luggage;
-        this.totalPrice = totalPrice;
         this.seats = seats;
     }
 
@@ -55,11 +59,7 @@ public class Reservation {
     }
 
     public int getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
+        return (this.getFlight().getCost() * this.tickets) + 100 * (this.tickets-this.luggage<0?this.luggage-this.tickets:0);
     }
 
     public String getSeats() {
@@ -70,10 +70,13 @@ public class Reservation {
         this.seats = seats;
     }
 
+    private String getNextCode() {
+        return String.valueOf(++RESERVATIONS);
+    }
+
     @Override
     public String toString() {
-        return "Reservation{" + "flight=" + flight + ", tickets=" + tickets + ", luggage=" + luggage + ", totalPrice=" + totalPrice + ", seats=" + seats + '}';
+        return "Reservation{" + "reservationCode=" + reservationCode + ", flight=" + flight + ", tickets=" + tickets + ", luggage=" + luggage + ", seats=" + seats + '}';
     }
-    
-    
+
 }

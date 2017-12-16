@@ -16,15 +16,14 @@ package indieairways.model;
  */
 public class Airport {
 
-    private String city, city_code, flight_code;
+    private String city, airportCode;
 
     public Airport() {
     }
 
-    public Airport(String city, String city_code, String flight_code) {
+    public Airport(String airportCode, String city) {
+        this.airportCode = airportCode;
         this.city = city;
-        this.city_code = city_code;
-        this.flight_code = flight_code;
     }
 
     public String getCity() {
@@ -35,25 +34,16 @@ public class Airport {
         this.city = city;
     }
 
-    public String getCity_code() {
-        return city_code;
+    public String getAirportCode() {
+        return airportCode;
     }
 
-    public void setCity_code(String city_code) {
-        this.city_code = city_code;
-    }
-
-    public String getFlight_code() {
-        return flight_code;
-    }
-
-    public void setFlight_code(String flight_code) {
-        this.flight_code = flight_code;
+    public void setAirportCode(String airportCode) {
+        this.airportCode = airportCode;
     }
 
     @Override
     public String toString() {
-        return "Aeropuerto{" + "city=" + city + ", city_code=" + city_code + ", flight_code=" + flight_code + '}';
+        return "Airport{" + "city=" + city + ", airportCode=" + airportCode + '}';
     }
-
 }
