@@ -25,6 +25,12 @@ IndieAirwaysServer/nbproject/private/
 IndieAirwaysClient/nbproject/private/
 IndieAirwaysCommon/nbproject/private/
 IndieAirwaysClient/build/
+IndieAirwaysServer/build/
 IndieAirwaysCommon/build/
 IndieAirwaysCommon/dist/
+IndieAirwaysServer/dist/
 IndieAirwaysClient/dist/
+
+*/nbproject/private/
+*/build
+*/dist
