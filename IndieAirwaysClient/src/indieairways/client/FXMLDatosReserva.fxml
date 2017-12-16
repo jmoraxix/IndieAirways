@@ -15,7 +15,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="528.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="indieairways.client.FXMLDatosReservaController">
     <children>
-      <GridPane layoutY="3.0" prefHeight="538.0" prefWidth="642.0">
+      <GridPane layoutY="3.0" prefHeight="538.0" prefWidth="642.0" stylesheets="@clientefxml.css">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -44,7 +44,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Reservation Indie Airways" GridPane.columnIndex="3" GridPane.columnSpan="6" GridPane.rowIndex="1">
+            <Label prefHeight="33.0" prefWidth="408.0" styleClass="titulo1" stylesheets="@clientefxml.css" text="Reservation Indie Airways" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.columnSpan="7" GridPane.rowIndex="1">
                <font>
                   <Font size="24.0" />
                </font>
@@ -52,8 +52,8 @@
             <RadioButton fx:id="rBRT" mnemonicParsing="false" text="RoundTrip" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="2" />
             <RadioButton fx:id="rBOW" mnemonicParsing="false" onAction="#handleOneWay" text="One-Way" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" />
             <Label text="To:" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-            <Button fx:id="bn2" mnemonicParsing="false" onAction="#habdleBn2Action" text="OK" GridPane.columnIndex="5" GridPane.rowIndex="10" />
-            <Label text="Luggage:" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Button fx:id="bn2" mnemonicParsing="false" onAction="#handleBn2Action" text="OK" GridPane.columnIndex="5" GridPane.rowIndex="10" />
+            <Label prefHeight="18.0" prefWidth="97.0" text="Luggage:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7" />
             <ComboBox fx:id="cBTO" prefWidth="150.0" promptText="Destination" GridPane.columnIndex="7" GridPane.columnSpan="3" GridPane.rowIndex="3" />
             <ComboBox fx:id="cBF" prefWidth="150.0" promptText="Departure" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="3" />
             <DatePicker fx:id="dPF" prefHeight="21.0" prefWidth="153.0" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="5" />
@@ -64,7 +64,7 @@
             <Label text="Class:" GridPane.columnIndex="6" GridPane.rowIndex="7" />
             <RadioButton fx:id="rBEconomy" mnemonicParsing="false" text="Economy" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="7" />
             <RadioButton fx:id="rBBuis" mnemonicParsing="false" text="Buisness" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="8" />
-            <Label prefHeight="28.0" prefWidth="75.0" text="Passangers:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8">
+            <Label prefHeight="26.0" prefWidth="104.0" text="Passangers:" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="8">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>

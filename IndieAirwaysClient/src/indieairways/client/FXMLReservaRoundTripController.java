@@ -17,10 +17,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class FXMLReservaRoundTripController implements Initializable {
     
-    @FXML private Button bBack;
+    @FXML private ImageView btnBack;
     @FXML private Button bNext;
     @FXML private Label lPrice;
     @FXML private Label lDepDate;
@@ -33,9 +35,17 @@ public class FXMLReservaRoundTripController implements Initializable {
     @FXML private Label lFliTimeRe;
     
     
+    private IndieAirwaysClient application;
+    
+    public void setApp(IndieAirwaysClient application) {
+        this.application = application;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       btnBack.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)-> {
+            application.gotoVerReserva();
+        });
     }    
     
 }

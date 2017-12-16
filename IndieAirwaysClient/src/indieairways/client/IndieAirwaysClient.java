@@ -37,6 +37,8 @@ public class IndieAirwaysClient extends Application {
 //    private Cliente cliente;
     private static Reservacion reservacion = new Reservacion();
     
+    //Instanciar el hilo para el timer de reserva del vuelo 
+    
     /**
      * @param args the command line arguments
      */
@@ -53,7 +55,7 @@ public class IndieAirwaysClient extends Application {
             stage.setMinHeight(WINDOW_HEIGHT);
             //gotoLogin();
             gotoVerReserva();
-            primaryStage.show();
+            primaryStage.show(); 
         } catch (Exception ex) {
             Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -94,6 +96,24 @@ public class IndieAirwaysClient extends Application {
         try {
             FXMLDatosReservaController verReserva1 = (FXMLDatosReservaController) replaceSceneContent("FXMLDatosReserva.fxml");
             verReserva1.setApp(this);
+        } catch (Exception ex) {
+            Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+    
+    public void gotoReservaOneWay(){
+        try {
+            FXMLReservaOneWayController verReservaOW = (FXMLReservaOneWayController) replaceSceneContent("FXMLReservaOneWay.fxml");
+            verReservaOW.setApp(this);
+        } catch (Exception ex) {
+            Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+    
+    public void gotoReservaRoundTrip(){
+        try {
+            FXMLReservaRoundTripController verReservaRT = (FXMLReservaRoundTripController) replaceSceneContent("FXMLReservaRoundTrip.fxml");
+            verReservaRT.setApp(this);
         } catch (Exception ex) {
             Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
        }

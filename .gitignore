@@ -31,8 +31,8 @@ IndieAirwaysCommon/dist/
 IndieAirwaysServer/dist/
 IndieAirwaysClient/dist/
 
-*/nbproject/private/
-*/build
-*/dist
+*/nbproject/private/*
+*/build/*
+*/dist/*
 
 IndieAirwaysCommon/dist/IndieAirwaysCommon.jar
