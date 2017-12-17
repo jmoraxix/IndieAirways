@@ -34,11 +34,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.FlowPane;
-import javafx.stage.Stage;
-//import javafx.scene.text.Text;
-//import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
 public class FXMLDatosReservaController implements Initializable {
@@ -50,11 +47,13 @@ public class FXMLDatosReservaController implements Initializable {
     @FXML private DatePicker dPTO; //DatePicker To
     @FXML private RadioButton rBOW; //RadioButton One-Way
     @FXML private RadioButton rBRT; //RadioButton Round Trip
-    @FXML private TextField tFLuggage; //TextField for quantity of luggage
-    @FXML private TextField tFPassan; //TExtField for quantity of passangers
+    @FXML private ComboBox cBLugg; //Combo Box for quantity of luggage
+    @FXML private ComboBox cBPassang;  //Cambo Box for quantity of passangers
     @FXML private RadioButton rBEconomy; //Radio Button for Economy Class
     @FXML private RadioButton rBBuis; //Radio Button for Buisness Class
     @FXML private RadioButton rBFirClass; //Radio Button for First Class
+    @FXML private ImageView btnHome;
+    @FXML private Label labelAlert;
 
     private IndieAirwaysClient application;
 
@@ -71,59 +70,75 @@ public class FXMLDatosReservaController implements Initializable {
     private int tipoClase;
     private int numPasajeros;
     private int numMaletas;
+    private boolean datosCorrectos;
 
     ObservableList<String> ciudades = FXCollections.observableArrayList("San Jose", "Tokyo", "Milan", "Barcelona", "Cairo");
+    ObservableList<String> maletas = FXCollections.observableArrayList("1", "2", "3");
+    ObservableList<String> pasajeros = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6");
 
     @FXML
     private void handleOneWay(ActionEvent event) {
         //dPTO.disableProperty();
         dPTO.setEditable(false);
     }
-
+    
+    /*@FXML 
+    private void handleGoHomeAction(ActionEvent event){
+        
+    }*/
+   
     @FXML
     private void handleBn2Action(ActionEvent event) throws IOException {
 
-        try { //Errores que pueden ocurrir con las Radio Button
-            if (rBOW.isSelected()) {
-                tipoVuelo = 0;
-            } else if (rBRT.isSelected()) {
-                tipoVuelo = 1;
-            }
-        } catch (Exception e) {
-            //System.out.println("Escoga solamente una caja");
-            JOptionPane.showMessageDialog(null, "Mensaje");
+        datosCorrectos = true;
+                
+        if (rBOW.isSelected()) {
+            tipoVuelo = 0;
+        } else if (rBRT.isSelected()) {
+            tipoVuelo = 1;
+        } else{
+            //JOptionPane.showMessageDialog(frame, "You have to enter a type of Flight.");
+            labelAlert.setText("You have to enter a type of flight");
+            datosCorrectos = false;
         }
 
-        try { //Errores que pueden ocurrir con las Choice Boxes
             if (cBF.getValue().equals(cBTO.getValue())) {
-                System.out.println("No puede ingresar ambos lugares iguales");
-            } else {
+                labelAlert.setText("You can't put the same city as departure and destination.");
+                datosCorrectos = false;
+            } else if (cBF.getValue().equals("Departure")  || cBTO.getValue().equals("Destination")){
+                labelAlert.setText("You have to put a departure and a destination city.");
+                datosCorrectos = false;
+            }else {
                 ciudadOrigen = (String) cBF.getValue();
                 ciudadDestino = (String) cBTO.getValue();
             }
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Mensaje");
-        }
-
-        try {
             fromDate = dPF.getValue();
             toDate = dPTO.getValue();
             if (fromDate.equals(toDate)) {
-                JOptionPane.showMessageDialog(null, "Fecha invalida");
+                labelAlert.setText("Invalid date, they are the same date.");
+                datosCorrectos = false;
             }
 
             if (A_menor(fromDate, toDate)) {
-                JOptionPane.showMessageDialog(null, "Fecha invalida");
+                labelAlert.setText("Invalid date, returning date is before the departure one.");
+                datosCorrectos = false;
             }
-
-        } catch (Exception e) {
-
+            
+        if(cBPassang.getSelectionModel().isEmpty()){
+            labelAlert.setText("You have to enter a number of Passangers.");
+            datosCorrectos = false;
+        }else{
+            numPasajeros = Integer.parseInt((String)(cBPassang.getValue()));
         }
-
-        //Ponerle un maximo y excepcion en el caso que no sea un numero
-        numPasajeros = Integer.parseInt(tFPassan.getText());
-        numMaletas = Integer.parseInt(tFLuggage.getText());
+        
+        if(cBLugg.getSelectionModel().isEmpty()){
+            labelAlert.setText("You have to enter a number of Luggage.");
+            datosCorrectos = false;
+        }else{
+            numMaletas =  Integer.parseInt((String)(cBLugg.getValue()));
+        }
+        
 
         if (rBEconomy.isSelected()) {
             tipoClase = 0;
@@ -131,6 +146,9 @@ public class FXMLDatosReservaController implements Initializable {
             tipoClase = 1;
         } else if (rBBuis.isSelected()) {
             tipoClase = 2;
+        } else {
+            labelAlert.setText("You have to enter a type of Class.");
+            datosCorrectos = false;
         }
 
         System.out.println("Tipo de vuelo es " + tipoVuelo + "\nCiudad Origen: " + ciudadOrigen
@@ -138,8 +156,6 @@ public class FXMLDatosReservaController implements Initializable {
                 + "\nFecha de Regreso: " + toDate + "\nNumero de pasajeros: " + numPasajeros
                 + "\nNumero de maletas: " + numMaletas + "\nTipo de Clase: " + tipoClase);
 
-        //goNextWindow(event, tipoVuelo);
-        //application.gotoReservaOneWay();
     }
 
     public boolean A_menor(LocalDate l1, LocalDate l2) { //Revisa si la fecha es menor
@@ -164,6 +180,9 @@ public class FXMLDatosReservaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         cBF.getItems().addAll(ciudades);
         cBTO.getItems().addAll(ciudades);
+        cBLugg.getItems().addAll(maletas);
+        cBPassang.getItems().addAll(pasajeros);
+        
 
         rBOW.setToggleGroup(tipoVueloTG);
         rBRT.setToggleGroup(tipoVueloTG);
@@ -173,11 +192,14 @@ public class FXMLDatosReservaController implements Initializable {
         rBFirClass.setToggleGroup(tipoClaseTG);
 
         bn2.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-            System.out.println("Primero");
-            if(tipoVuelo == 0)
+            if(tipoVuelo == 0 && datosCorrectos)
                 application.gotoReservaOneWay();
-            else if(tipoVuelo == 1)
+            else if(tipoVuelo == 1 && datosCorrectos)
                 application.gotoReservaRoundTrip();
+            });
+        
+        btnHome.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            application.gotoMenu();
             });
 
     }

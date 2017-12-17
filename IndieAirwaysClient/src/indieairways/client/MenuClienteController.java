@@ -1,10 +1,12 @@
 /*
- * Programacion Concurrente Cliente Servidor
- * 
- * Jose David Mora Loria
- * Adrian Ruiz Porras
- * Carlos Rodriguez Otoya
- * 
+* Programacion Concurrente Cliente Servidor
+* 
+* Emilio Evans Rodriguez
+* Jose David Mora Loria
+* Carlos Oreamuno Alfaro
+* 
+* Tercer cuatrimestre, 2017
+* Ulacit
  */
 package indieairways.client;
 
@@ -22,12 +24,9 @@ import javafx.scene.input.MouseEvent;
  */
 public class MenuClienteController implements Initializable {
 
-    @FXML
-    private ImageView btnPeliculas;
-    @FXML
-    private ImageView btnComida;
-    @FXML
-    private ImageView btnReservaciones;
+    @FXML private ImageView ivBookFli;
+    @FXML private ImageView ivMyFli;
+    @FXML private ImageView ivMyInfo;
 
     private IndieAirwaysClient application;
 
@@ -42,19 +41,18 @@ public class MenuClienteController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        btnPeliculas.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)
-                -> {
-            System.out.println("btnPeliculas");
-            //application.gotoVerPeliculas();
+        ivBookFli.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)-> {
+            System.out.println("ivBookFli");
+            application.gotoVerReserva();
         });
-        btnComida.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)
-                -> {
-            System.out.println("btnComida");
+        
+        ivMyFli.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)-> {
+            System.out.println("ivMyFli");
         });
-        btnReservaciones.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)
-                -> {
-            System.out.println("btnReservaciones");
+        
+        ivMyInfo.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)-> {
+            System.out.println("ivMyInfo");
         });
     }
 
-}
+}//Fin de la clase MenuCliente.fxml
