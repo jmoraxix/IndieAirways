@@ -11,7 +11,7 @@
 package indieairways.API;
 
 import com.google.gson.Gson;
-import indieairways.model.Usuario;
+import indieairways.model.User;
 import indieairways.util.Util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -51,10 +51,8 @@ public class LoginResource {
      * @return an instance of java.lang.String
      */
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getJson() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    public Response getJson() {
+        return Response.status(405).build();
     }
 
     /**
@@ -63,7 +61,8 @@ public class LoginResource {
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
+    public Response putJson(String content) {
+        return Response.status(405).build();
     }
     
     @POST
@@ -79,14 +78,15 @@ public class LoginResource {
             Logger.getLogger(UserResources.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        for (Usuario u : Util.LISTA_USURIOS) {
-            if (u.getUser().equals(user)) {
+        for (User u : Util.USER_LIST) {
+            if (u.getUsername().equals(user)) {
                 if (u.getPassword().equals(mdPasswd.digest())) {
                     return Response.ok(new Gson().toJson(u)).build();
                 }
+                return Response.status(401).build();
             }
         }
 
-        return Response.status(401).build();
+        return Response.status(404).build();
     }
 }

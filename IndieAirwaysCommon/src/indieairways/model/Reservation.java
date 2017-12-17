@@ -22,6 +22,9 @@ public class Reservation {
     private Flight flight;
     private int tickets, luggage;
     private String seats;
+    /*
+    @TODO Add sector to reservation
+    */
 
     public Reservation() {
     }
