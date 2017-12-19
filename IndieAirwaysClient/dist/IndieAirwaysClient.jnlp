@@ -8,8 +8,9 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="IndieAirwaysClient.jar" size="110755" download="eager" />
-    <jar href="lib/IndieAirwaysCommon.jar" size="16501" download="eager" />
+    <jar href="IndieAirwaysClient.jar" size="111932" download="eager" />
+    <jar href="lib/IndieAirwaysCommon.jar" size="15980" download="eager" />
+    <jar href="lib/gson-2.8.2.jar" size="232932" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="IndieAirwaysClient" >
     <param name="requiredFXVersion" value="8.0+"/>

@@ -46,6 +46,8 @@
                </image>
             </ImageView>
             <Button fx:id="bNext" mnemonicParsing="false" prefHeight="27.0" prefWidth="132.0" text="Create Resevation" GridPane.columnIndex="8" GridPane.columnSpan="3" GridPane.rowIndex="7" />
+            <Label prefHeight="17.0" prefWidth="107.0" text="Departure Time:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <Label prefHeight="16.0" prefWidth="104.0" text="Departure Date:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <Label layoutX="232.0" layoutY="14.0" prefHeight="26.0" prefWidth="137.0" text="Reservation">
@@ -53,23 +55,17 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="39.0" layoutY="109.0" text="Departure Date" />
-      <Label layoutX="39.0" layoutY="148.0" text="Departure Time" />
-      <Label layoutX="50.0" layoutY="184.0" text="Arrival Time" />
       <Label layoutX="52.0" layoutY="226.0" text="Flight Time" />
       <Label layoutX="54.0" layoutY="314.0" text="Total Price" />
       <Label fx:id="lPrice" layoutX="169.0" layoutY="314.0" text="Label" />
       <Label fx:id="lDepDate" layoutX="186.0" layoutY="109.0" text="Label" />
       <Label fx:id="lDepTime" layoutX="186.0" layoutY="148.0" text="Label" />
-      <Label fx:id="lArriTime" layoutX="186.0" layoutY="184.0" text="Label" />
       <Label fx:id="lFliTime" layoutX="186.0" layoutY="226.0" text="Label" />
       <Label layoutX="339.0" layoutY="109.0" text="Return Date" />
       <Label fx:id="lRetDate" layoutX="486.0" layoutY="109.0" text="Label" />
       <Label layoutX="328.0" layoutY="148.0" text="Departure Time" />
-      <Label layoutX="339.0" layoutY="184.0" text="Arrival Time" />
       <Label layoutX="342.0" layoutY="226.0" text="Flight Time" />
       <Label fx:id="lDepTimeRe" layoutX="486.0" layoutY="148.0" text="Label" />
-      <Label fx:id="lArriTimeRe" layoutX="486.0" layoutY="184.0" text="Label" />
       <Label fx:id="lFliTimeRe" layoutX="486.0" layoutY="226.0" text="Label" />
    </children>
 </AnchorPane>

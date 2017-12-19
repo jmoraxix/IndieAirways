@@ -24,9 +24,8 @@ import javafx.scene.image.ImageView;
  */
 public class LoginController implements Initializable {
 
-    @FXML
-    private TextField txtUser;
-    private TextField txtPasswd;
+    @FXML private TextField txtUser;
+    @FXML private TextField txtPasswd;
 //    @FXML
 //    private ImageView btnComida;
 //    @FXML

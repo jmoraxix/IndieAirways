@@ -10,33 +10,30 @@
  */
 package indieairways.client;
 
+//import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-//import java.time.format.DateTimeFormatter;
-//import java.util.ArrayList;
-//import java.util.List;
 import java.util.ResourceBundle;
-//import java.util.stream.Collectors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javax.swing.JOptionPane;
+
+
 
 public class FXMLDatosReservaController implements Initializable {
 
@@ -60,7 +57,7 @@ public class FXMLDatosReservaController implements Initializable {
     private final ToggleGroup tipoVueloTG = new ToggleGroup();
     private final ToggleGroup tipoClaseTG = new ToggleGroup();
 
-    private DateCell fromCell, toCell = null;
+    private DateCell fromCell, toCell = null; //verificar la fecha
     private LocalDate fromDate, toDate = null;
     //private String pattern1 = "dd-MM";
 
@@ -82,11 +79,70 @@ public class FXMLDatosReservaController implements Initializable {
         dPTO.setEditable(false);
     }
     
-    /*@FXML 
-    private void handleGoHomeAction(ActionEvent event){
-        
-    }*/
-   
+    public ComboBox getcBF() {
+        return cBF;
+    }
+
+    public void setcBF(ComboBox cBF) {
+        this.cBF = cBF;
+    }
+
+    public ComboBox getcBTO() {
+        return cBTO;
+    }
+
+    public void setcBTO(ComboBox cBTO) {
+        this.cBTO = cBTO;
+    }
+
+    public DatePicker getdPF() {
+        return dPF;
+    }
+
+    public void setdPF(DatePicker dPF) {
+        this.dPF = dPF;
+    }
+
+    public DatePicker getdPTO() {
+        return dPTO;
+    }
+
+    public void setdPTO(DatePicker dPTO) {
+        this.dPTO = dPTO;
+    }
+
+    public int getNumPasajeros() {
+        return numPasajeros;
+    }
+
+    public void setNumPasajeros(int numPasajeros) {
+        this.numPasajeros = numPasajeros;
+    }
+
+    public int getNumMaletas() {
+        return numMaletas;
+    }
+
+    public void setNumMaletas(int numMaletas) {
+        this.numMaletas = numMaletas;
+    }
+
+    public String getCiudadOrigen() {
+        return ciudadOrigen;
+    }
+
+    public void setCiudadOrigen(String ciudadOrigen) {
+        this.ciudadOrigen = ciudadOrigen;
+    }
+
+    public String getCiudadDestino() {
+        return ciudadDestino;
+    }
+
+    public void setCiudadDestino(String ciudadDestino) {
+        this.ciudadDestino = ciudadDestino;
+    }
+    
     @FXML
     private void handleBn2Action(ActionEvent event) throws IOException {
 
@@ -150,6 +206,24 @@ public class FXMLDatosReservaController implements Initializable {
             labelAlert.setText("You have to enter a type of Class.");
             datosCorrectos = false;
         }
+        
+        /*FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getResource("FXMLReservaOneWayController.fxml"));
+        try{
+            Loader.load();
+        } catch(IOException ex){
+            Logger.getLogger(FXMLDatosReservaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Parent p = Loader.getRoot();
+        Stage stage = new Stage();
+        stage.set*/
+        /*FXMLLoader Loader = new FXMLLoader();
+        FXMLReservaOneWayController display = Loader.getController();
+        display.setText(ciudadDestino);*/
+        
+        application.setCiudadO(ciudadOrigen);
+        application.setCityD(ciudadDestino);
+        application.setDepDate(fromDate);
 
         System.out.println("Tipo de vuelo es " + tipoVuelo + "\nCiudad Origen: " + ciudadOrigen
                 + "\nCiudad Destino: " + ciudadDestino + "\nFecha Salida: " + fromDate
@@ -157,7 +231,7 @@ public class FXMLDatosReservaController implements Initializable {
                 + "\nNumero de maletas: " + numMaletas + "\nTipo de Clase: " + tipoClase);
 
     }
-
+   
     public boolean A_menor(LocalDate l1, LocalDate l2) { //Revisa si la fecha es menor
         boolean esMenor = false;
 
@@ -193,7 +267,7 @@ public class FXMLDatosReservaController implements Initializable {
 
         bn2.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             if(tipoVuelo == 0 && datosCorrectos)
-                application.gotoReservaOneWay();
+                application.gotoReservaOneWay(); 
             else if(tipoVuelo == 1 && datosCorrectos)
                 application.gotoReservaRoundTrip();
             });

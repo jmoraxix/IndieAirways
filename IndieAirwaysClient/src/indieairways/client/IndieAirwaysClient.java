@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import indieairways.model.Reservation;
+import java.time.LocalDate;
 
 /**
  *
@@ -32,12 +33,27 @@ public class IndieAirwaysClient extends Application {
     private Stage stage;
     private final double WINDOW_WIDTH = Util.WIDTH;
     private final double WINDOW_HEIGHT = Util.HEIGHT;
+    
+    private String cityO, cityD; //Ciudad de destino y ciudad de origen
+    private LocalDate depDate;
 
     //Variables del cliente TCP
 //    private Cliente cliente;
     private static Reservation reservacion = new Reservation();
     
-    //Instanciar el hilo para el timer de reserva del vuelo 
+    public void setCiudadO(String ciudadO){
+        this.cityO = ciudadO;
+    }
+        
+    public void setCityD(String cityD){
+        this.cityD = cityD;
+    }
+    
+    public void setDepDate(LocalDate depDate){
+        this.depDate = depDate;
+    }
+        
+    //TODO Instanciar el hilo para el timer de reserva del vuelo 
     
     /**
      * @param args the command line arguments
@@ -60,9 +76,6 @@ public class IndieAirwaysClient extends Application {
             Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        //Iniciando cliente TCP
-//        this.cliente = new Cliente(this);
-//        this.cliente.start();
     }
 
     /**
@@ -94,8 +107,8 @@ public class IndieAirwaysClient extends Application {
      */
     public void gotoVerReserva() {
         try {
-            FXMLDatosReservaController verReserva1 = (FXMLDatosReservaController) replaceSceneContent("FXMLDatosReserva.fxml");
-            verReserva1.setApp(this);
+            FXMLDatosReservaController verReserva = (FXMLDatosReservaController) replaceSceneContent("FXMLDatosReserva.fxml");
+            verReserva.setApp(this);
         } catch (Exception ex) {
             Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
        }
@@ -105,6 +118,7 @@ public class IndieAirwaysClient extends Application {
         try {
             FXMLReservaOneWayController verReservaOW = (FXMLReservaOneWayController) replaceSceneContent("FXMLReservaOneWay.fxml");
             verReservaOW.setApp(this);
+            verReservaOW.setText(cityO, cityD, depDate);
         } catch (Exception ex) {
             Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
        }

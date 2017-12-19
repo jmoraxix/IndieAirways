@@ -30,15 +30,15 @@ public class Util {
     public static int WIDTH = 642;
     public static int HEIGHT = 528;
 
-    public static int SERVER_PORT = 2356;
-    public static String SERVER_IP = "localhost";
-
-    public static Gson getGson() {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-//        gsonBuilder.registerTypeAdapter(Date.class, new DateSerializer());
-//        gsonBuilder.registerTypeAdapter(Date.class, new DateDeserializer());
-        return gsonBuilder.create();
-    }
+//    public static int SERVER_PORT = 2356;
+//    public static String SERVER_IP = "localhost";
+//
+//    public static Gson getGson() {
+//        GsonBuilder gsonBuilder = new GsonBuilder();
+////        gsonBuilder.registerTypeAdapter(Date.class, new DateSerializer());
+////        gsonBuilder.registerTypeAdapter(Date.class, new DateDeserializer());
+//        return gsonBuilder.create();
+//    }
 
     //Variables globales de la aplicación
     public static User CURRENT_USER = null;
@@ -65,6 +65,8 @@ public class Util {
 //        System.out.println(salas);
 //        return salas;
 //    }
+    
+    
     
     
     public void generateData(){

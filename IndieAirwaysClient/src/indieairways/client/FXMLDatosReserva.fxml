@@ -72,7 +72,7 @@
             <RadioButton fx:id="rBBuis" mnemonicParsing="false" text="Buisness" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="8" />
             <Label prefHeight="26.0" prefWidth="104.0" text="Passangers:" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="8">
                <GridPane.margin>
-                  <Insets />
+                 <Insets />
                </GridPane.margin>
             </Label>
             <RadioButton fx:id="rBFirClass" mnemonicParsing="false" text="First Class" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="9" />

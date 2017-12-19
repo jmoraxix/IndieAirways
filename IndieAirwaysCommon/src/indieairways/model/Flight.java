@@ -34,7 +34,7 @@ public class Flight {
         this.departure = departures;
         this.departureTime = departureTime;
         this.duration = duration;
-        this.date = date;
+        this.date = date; //
         this.cost = cost;
     }
 
