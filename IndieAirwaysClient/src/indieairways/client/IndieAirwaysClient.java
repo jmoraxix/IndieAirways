@@ -35,7 +35,7 @@ public class IndieAirwaysClient extends Application {
     private final double WINDOW_HEIGHT = Util.HEIGHT;
     
     private String cityO, cityD; //Ciudad de destino y ciudad de origen
-    private LocalDate depDate;
+    private LocalDate depDate, depDate2;
 
     //Variables del cliente TCP
 //    private Cliente cliente;
@@ -51,6 +51,10 @@ public class IndieAirwaysClient extends Application {
     
     public void setDepDate(LocalDate depDate){
         this.depDate = depDate;
+    }
+    
+    public void setDepDate2(LocalDate depDate2){
+        this.depDate2 = depDate2;
     }
         
     //TODO Instanciar el hilo para el timer de reserva del vuelo 
@@ -128,6 +132,7 @@ public class IndieAirwaysClient extends Application {
         try {
             FXMLReservaRoundTripController verReservaRT = (FXMLReservaRoundTripController) replaceSceneContent("FXMLReservaRoundTrip.fxml");
             verReservaRT.setApp(this);
+            verReservaRT.setText(cityO, cityD, depDate, depDate2);
         } catch (Exception ex) {
             Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
        }

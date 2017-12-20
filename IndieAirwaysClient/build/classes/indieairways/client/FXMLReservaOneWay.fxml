@@ -46,33 +46,42 @@
                   <Image url="@imagenes/atras.png" />
                </image>
             </ImageView>
-            <Label fx:id="lDepDate" prefHeight="15.0" prefWidth="127.0" text="Label" GridPane.columnIndex="8" GridPane.columnSpan="3" GridPane.rowIndex="3">
-               <padding>
-                  <Insets left="20.0" />
-               </padding></Label>
-            <Label prefHeight="17.0" prefWidth="114.0" text="Departure Date:" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-            <Label fx:id="lDepTime" text="Label" GridPane.columnIndex="9" GridPane.rowIndex="4" />
-            <Label prefHeight="20.0" prefWidth="116.0" text="Departure Time:" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="4" />
-            <Label fx:id="lFliTime" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <Label prefHeight="17.0" prefWidth="88.0" text="Flight Time:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
-            <Label text="Price" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-            <Label fx:id="lPrice" text="Label" GridPane.columnIndex="6" GridPane.rowIndex="8" />
-            <Button fx:id="bNext" mnemonicParsing="false" text="Buy" GridPane.columnIndex="9" GridPane.rowIndex="9">
+            <Label fx:id="lDepTime" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Label prefHeight="20.0" prefWidth="116.0" text="Departure Time:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+            <Label text="Price:" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <Label fx:id="lPrice" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+            <Button fx:id="bNext" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="Create Reservation" GridPane.columnIndex="7" GridPane.columnSpan="3" GridPane.rowIndex="9">
                <GridPane.margin>
-                  <Insets left="10.0" />
+                  <Insets />
                </GridPane.margin>
             </Button>
-            <Label prefHeight="39.0" prefWidth="297.0" styleClass="titulo1" stylesheets="@clientefxml.css" text="Reservation" GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.rowIndex="1">
+            <Label prefHeight="36.0" prefWidth="454.0" styleClass="titulo1" stylesheets="@clientefxml.css" text="Reservation One-Way" GridPane.columnIndex="2" GridPane.columnSpan="7" GridPane.rowIndex="1">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label prefHeight="17.0" prefWidth="114.0" text="Flight Number:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-            <Label fx:id="lFliNum" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <Label prefHeight="18.0" prefWidth="107.0" text="Departure City:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
-            <Label prefHeight="15.0" prefWidth="94.0" text="Arrival City:" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="5" />
-            <Label fx:id="lDepCity" prefHeight="21.0" prefWidth="79.0" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="5" />
-            <Label fx:id="lArriCity" prefHeight="16.0" prefWidth="79.0" text="Label" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+            <Label prefHeight="17.0" prefWidth="114.0" text="Flight Number:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <Label fx:id="lFliNum" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label prefHeight="18.0" prefWidth="106.0" text="Departure City:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <Label fx:id="lDepCity" prefHeight="18.0" prefWidth="85.0" text="Label" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label prefHeight="18.0" prefWidth="87.0" text="Arrival City:" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lArriCity" prefHeight="17.0" prefWidth="103.0" text="Label" GridPane.columnIndex="8" GridPane.columnSpan="3" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label layoutX="68.0" layoutY="271.0" prefHeight="17.0" prefWidth="109.0" text="Departure Date:" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <Label fx:id="lDepDate" prefWidth="91.0" text="Label" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <Label layoutX="68.0" layoutY="369.0" prefHeight="17.0" prefWidth="79.0" text="Flight Time:" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+            <Label fx:id="lFliTime" text="Label" GridPane.columnIndex="8" GridPane.rowIndex="5" />
          </children>
       </GridPane>
    </children>

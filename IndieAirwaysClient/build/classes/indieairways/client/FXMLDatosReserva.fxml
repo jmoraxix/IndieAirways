@@ -31,7 +31,6 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -46,6 +45,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label prefHeight="26.0" prefWidth="411.0" styleClass="titulo1" stylesheets="@clientefxml.css" text="Reservation Indie Airways" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.columnSpan="9" GridPane.rowIndex="1">
@@ -53,38 +53,38 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <RadioButton fx:id="rBRT" mnemonicParsing="false" text="RoundTrip" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-            <RadioButton fx:id="rBOW" mnemonicParsing="false" onAction="#handleOneWay" text="One-Way" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-            <Label text="To:" GridPane.columnIndex="8" GridPane.rowIndex="3" />
-            <Button fx:id="bn2" mnemonicParsing="false" onAction="#handleBn2Action" text="OK" GridPane.columnIndex="6" GridPane.rowIndex="10">
+            <RadioButton fx:id="rBRT" mnemonicParsing="false" text="RoundTrip" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <RadioButton fx:id="rBOW" mnemonicParsing="false" onAction="#handleOneWay" text="One-Way" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <Label text="To:" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+            <Button fx:id="bn2" mnemonicParsing="false" onAction="#handleBn2Action" text="OK" GridPane.columnIndex="6" GridPane.rowIndex="11">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin></Button>
-            <Label prefHeight="18.0" prefWidth="97.0" text="Luggage:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7" />
-            <ComboBox fx:id="cBTO" prefWidth="150.0" promptText="Destination" GridPane.columnIndex="9" GridPane.columnSpan="3" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cBF" prefWidth="150.0" promptText="Departure" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="3" />
-            <DatePicker fx:id="dPF" prefHeight="21.0" prefWidth="153.0" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="5" />
-            <DatePicker fx:id="dPTO" prefHeight="28.0" prefWidth="154.0" GridPane.columnIndex="9" GridPane.columnSpan="3" GridPane.rowIndex="5" />
-            <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <Label text="Label" GridPane.columnIndex="8" GridPane.rowIndex="5" />
-            <Label text="Class:" GridPane.columnIndex="8" GridPane.rowIndex="7" />
-            <RadioButton fx:id="rBEconomy" mnemonicParsing="false" text="Economy" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="7" />
-            <RadioButton fx:id="rBBuis" mnemonicParsing="false" text="Buisness" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="8" />
-            <Label prefHeight="26.0" prefWidth="104.0" text="Passangers:" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="8">
+            <Label prefHeight="18.0" prefWidth="97.0" text="Luggage:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8" />
+            <ComboBox fx:id="cBTO" prefWidth="150.0" promptText="Destination" GridPane.columnIndex="9" GridPane.columnSpan="3" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cBF" prefWidth="150.0" promptText="Departure" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="4" />
+            <DatePicker fx:id="dPF" prefHeight="21.0" prefWidth="153.0" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="6" />
+            <DatePicker fx:id="dPTO" prefHeight="28.0" prefWidth="154.0" GridPane.columnIndex="9" GridPane.columnSpan="3" GridPane.rowIndex="6" />
+            <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label text="Label" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+            <Label text="Class:" GridPane.columnIndex="8" GridPane.rowIndex="8" />
+            <RadioButton fx:id="rBEconomy" mnemonicParsing="false" text="Economy" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="8" />
+            <RadioButton fx:id="rBBuis" mnemonicParsing="false" text="Buisness" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="9" />
+            <Label prefHeight="26.0" prefWidth="104.0" text="Passangers:" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="9">
                <GridPane.margin>
                  <Insets />
                </GridPane.margin>
             </Label>
-            <RadioButton fx:id="rBFirClass" mnemonicParsing="false" text="First Class" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="9" />
-            <Label text="From:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <RadioButton fx:id="rBFirClass" mnemonicParsing="false" text="First Class" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="10" />
+            <Label text="From:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <ImageView fx:id="btnHome" fitHeight="31.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <image>
                   <Image url="@imagenes/home-512.png" />
                </image>
             </ImageView>
-            <ComboBox fx:id="cBLugg" prefHeight="29.0" prefWidth="140.0" promptText="Max 3 pieces" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="7" />
-            <ComboBox fx:id="cBPassang" prefHeight="28.0" prefWidth="142.0" promptText="Max 5 persons" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="8" />
-            <Label fx:id="labelAlert" prefHeight="26.0" prefWidth="227.0" GridPane.columnIndex="8" GridPane.columnSpan="5" GridPane.rowIndex="10" />
+            <ComboBox fx:id="cBLugg" prefHeight="29.0" prefWidth="140.0" promptText="Max 3 pieces" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="8" />
+            <ComboBox fx:id="cBPassang" prefHeight="28.0" prefWidth="142.0" promptText="Max 5 persons" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="9" />
+            <Label fx:id="labelAlert" prefHeight="42.0" prefWidth="467.0" GridPane.columnIndex="2" GridPane.columnSpan="9" GridPane.rowIndex="11" />
          </children>
       </GridPane>
     </children>

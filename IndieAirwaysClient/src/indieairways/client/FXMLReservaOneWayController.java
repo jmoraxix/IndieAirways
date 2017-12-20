@@ -35,8 +35,7 @@ public class FXMLReservaOneWayController implements Initializable {
     @FXML private Label lArriCity; //cBTO
     @FXML private Label lFliNum;
     
-    
-    public FXMLDatosReservaController datosReserva; 
+    //public FXMLDatosReservaController datosReserva; 
     
     private IndieAirwaysClient application;
     
@@ -48,7 +47,6 @@ public class FXMLReservaOneWayController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO        
         btnBack.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)-> { //Ir a la pantalla anterior
-            //System.out.println("Paso");
             application.gotoVerReserva();
         });
         
@@ -58,7 +56,13 @@ public class FXMLReservaOneWayController implements Initializable {
         lDepCity.setText(depCity); 
         lArriCity.setText(arriCity);
         lDepDate.setText(depDate.toString());
-        
     }
     
-}
+    public int precio(){ //Este metodo debe de calcular el precio del boleto tomando en cuenta la cantidad de pasajeros y las maletas
+        int costo = 0;
+        
+        
+        return costo;
+    }
+    
+} //Fin de la clase FXMLReservaOneWayController

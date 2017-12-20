@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -12,7 +13,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="538.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="indieairways.client.FXMLReservaRoundTripController">
    <children>
-      <GridPane layoutX="-7.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="0.0">
+      <GridPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -45,31 +46,63 @@
                   <Image url="@imagenes/atras.png" />
                </image>
             </ImageView>
-            <Button fx:id="bNext" mnemonicParsing="false" prefHeight="27.0" prefWidth="132.0" text="Create Resevation" GridPane.columnIndex="8" GridPane.columnSpan="3" GridPane.rowIndex="7" />
+            <Button fx:id="bNext" mnemonicParsing="false" prefHeight="27.0" prefWidth="168.0" text="Create Resevation" GridPane.columnIndex="7" GridPane.columnSpan="3" GridPane.rowIndex="9" />
+            <Label prefHeight="17.0" prefWidth="107.0" text="Departure Time:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+            <Label prefHeight="16.0" prefWidth="104.0" text="Departure Date:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+            <Label prefHeight="25.0" prefWidth="282.0" text="Reservation RoundTrip" GridPane.columnIndex="3" GridPane.columnSpan="6" GridPane.rowIndex="1">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label prefHeight="16.0" prefWidth="74.0" text="Total Price:" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="9" />
+            <Label fx:id="lPrice" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+            <Label prefHeight="18.0" prefWidth="75.0" text="Flight Time:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+            <Label fx:id="lDepTime1" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Label text="From: " GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="lFromC1" prefHeight="18.0" prefWidth="85.0" text="Label" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="45.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="To:" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lToC1" prefHeight="17.0" prefWidth="93.0" text="Label" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="47.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="From:" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <Label fx:id="lFromC2" prefHeight="18.0" prefWidth="85.0" text="Label" GridPane.columnIndex="6" GridPane.columnSpan="3" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="45.0" />
+               </GridPane.margin>
+            </Label>
+            <Label prefHeight="19.0" prefWidth="22.0" text="To:" GridPane.columnIndex="8" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lToC2" prefHeight="14.0" prefWidth="97.0" text="Label" GridPane.columnIndex="8" GridPane.columnSpan="3" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="40.0" />
+               </GridPane.margin>
+            </Label>
+            <Label prefHeight="16.0" prefWidth="97.0" text="Flight Number:" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <Label fx:id="lFliNum1" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label fx:id="lDepDate1" prefHeight="14.0" prefWidth="84.0" text="Label" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+            <Label fx:id="lFliTime1" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <Label prefHeight="17.0" prefWidth="94.0" text="Flight Number:" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <Label fx:id="lFliNum2" text="Label" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+            <Label prefHeight="17.0" prefWidth="105.0" text="Departure Date:" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+            <Label fx:id="lDepDate2" prefWidth="91.0" text="Label" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+            <Label prefHeight="18.0" prefWidth="101.0" text="Departure Time:" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+            <Label fx:id="lDepTime2" text="Label" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+            <Label prefHeight="17.0" prefWidth="79.0" text="Flight Time:" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+            <Label fx:id="lFliTime2" text="Label" GridPane.columnIndex="8" GridPane.rowIndex="7" />
          </children>
       </GridPane>
-      <Label layoutX="232.0" layoutY="14.0" prefHeight="26.0" prefWidth="137.0" text="Reservation">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="39.0" layoutY="109.0" text="Departure Date" />
-      <Label layoutX="39.0" layoutY="148.0" text="Departure Time" />
-      <Label layoutX="50.0" layoutY="184.0" text="Arrival Time" />
-      <Label layoutX="52.0" layoutY="226.0" text="Flight Time" />
-      <Label layoutX="54.0" layoutY="314.0" text="Total Price" />
-      <Label fx:id="lPrice" layoutX="169.0" layoutY="314.0" text="Label" />
-      <Label fx:id="lDepDate" layoutX="186.0" layoutY="109.0" text="Label" />
-      <Label fx:id="lDepTime" layoutX="186.0" layoutY="148.0" text="Label" />
-      <Label fx:id="lArriTime" layoutX="186.0" layoutY="184.0" text="Label" />
-      <Label fx:id="lFliTime" layoutX="186.0" layoutY="226.0" text="Label" />
-      <Label layoutX="339.0" layoutY="109.0" text="Return Date" />
-      <Label fx:id="lRetDate" layoutX="486.0" layoutY="109.0" text="Label" />
-      <Label layoutX="328.0" layoutY="148.0" text="Departure Time" />
-      <Label layoutX="339.0" layoutY="184.0" text="Arrival Time" />
-      <Label layoutX="342.0" layoutY="226.0" text="Flight Time" />
-      <Label fx:id="lDepTimeRe" layoutX="486.0" layoutY="148.0" text="Label" />
-      <Label fx:id="lArriTimeRe" layoutX="486.0" layoutY="184.0" text="Label" />
-      <Label fx:id="lFliTimeRe" layoutX="486.0" layoutY="226.0" text="Label" />
    </children>
 </AnchorPane>

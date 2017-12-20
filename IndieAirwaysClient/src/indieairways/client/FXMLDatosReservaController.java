@@ -148,38 +148,39 @@ public class FXMLDatosReservaController implements Initializable {
 
         datosCorrectos = true;
                 
+        //Valida la mica
         if (rBOW.isSelected()) {
             tipoVuelo = 0;
         } else if (rBRT.isSelected()) {
             tipoVuelo = 1;
         } else{
-            //JOptionPane.showMessageDialog(frame, "You have to enter a type of Flight.");
             labelAlert.setText("You have to enter a type of flight");
             datosCorrectos = false;
         }
 
-            if (cBF.getValue().equals(cBTO.getValue())) {
-                labelAlert.setText("You can't put the same city as departure and destination.");
-                datosCorrectos = false;
-            } else if (cBF.getValue().equals("Departure")  || cBTO.getValue().equals("Destination")){
-                labelAlert.setText("You have to put a departure and a destination city.");
-                datosCorrectos = false;
-            }else {
-                ciudadOrigen = (String) cBF.getValue();
-                ciudadDestino = (String) cBTO.getValue();
-            }
+        //Validaciones para los comboBox
+        if (cBTO.getSelectionModel().isEmpty() || cBF.getSelectionModel().isEmpty()) {
+            labelAlert.setText("You have to put a departure and  a destination city."); /*"  + "\n" + "*/
+            datosCorrectos = false;
+        } else if (cBF.getValue().equals(cBTO.getValue()) ){
+            labelAlert.setText("You can't put the same city as departure and destination.");
+            datosCorrectos = false; 
+        }else {
+            ciudadOrigen = (String) cBF.getValue();
+            ciudadDestino = (String) cBTO.getValue();
+        }
 
-            fromDate = dPF.getValue();
-            toDate = dPTO.getValue();
-            if (fromDate.equals(toDate)) {
-                labelAlert.setText("Invalid date, they are the same date.");
-                datosCorrectos = false;
-            }
+        fromDate = dPF.getValue();
+        toDate = dPTO.getValue();
+        if (fromDate.equals(toDate)) {
+            labelAlert.setText("Invalid date, they are the same date.");
+            datosCorrectos = false;
+        }
 
-            if (A_menor(fromDate, toDate)) {
-                labelAlert.setText("Invalid date, returning date is before the departure one.");
-                datosCorrectos = false;
-            }
+        if (A_menor(fromDate, toDate)) {
+            labelAlert.setText("Invalid date, returning date is before the departure one.");
+            datosCorrectos = false;
+        }
             
         if(cBPassang.getSelectionModel().isEmpty()){
             labelAlert.setText("You have to enter a number of Passangers.");
@@ -224,6 +225,14 @@ public class FXMLDatosReservaController implements Initializable {
         application.setCiudadO(ciudadOrigen);
         application.setCityD(ciudadDestino);
         application.setDepDate(fromDate);
+        
+        if(tipoVuelo == 1){
+            application.setCiudadO(ciudadOrigen);
+            application.setCityD(ciudadDestino);
+            application.setDepDate(fromDate);
+            application.setDepDate2(toDate);
+        }
+            
 
         System.out.println("Tipo de vuelo es " + tipoVuelo + "\nCiudad Origen: " + ciudadOrigen
                 + "\nCiudad Destino: " + ciudadDestino + "\nFecha Salida: " + fromDate
