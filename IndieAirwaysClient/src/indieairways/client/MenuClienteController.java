@@ -46,11 +46,11 @@ public class MenuClienteController extends BaseController {
         });
 
         ivMyFli.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-            //System.out.println("ivMyFli");
+            application.gotoMyFlights();
         });
 
         ivMyInfo.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-            //System.out.println("ivMyInfo");
+            application.gotoMyInfo();
         });
     }
 
