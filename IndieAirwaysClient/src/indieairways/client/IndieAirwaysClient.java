@@ -145,6 +145,15 @@ public class IndieAirwaysClient extends Application {
        }
     }
     
+    public void gotoCreateUser(){
+        try {
+            FXMLCreateUserController verCreateUser = (FXMLCreateUserController) replaceSceneContent("FXMLFXMLCreateUser.fxml");
+            verCreateUser.setApp(this);
+        } catch (Exception ex) {
+            Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+    
     public void gotoReservaOneWay(){
         try {
             FXMLReservaOneWayController verReservaOW = (FXMLReservaOneWayController) replaceSceneContent("FXMLReservaOneWay.fxml");

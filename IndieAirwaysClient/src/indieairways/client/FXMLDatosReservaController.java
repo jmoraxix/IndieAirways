@@ -31,6 +31,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 public class FXMLDatosReservaController implements Initializable{
 
@@ -162,9 +163,11 @@ public class FXMLDatosReservaController implements Initializable{
         //Validaciones para los comboBox
         if (cBTO.getSelectionModel().isEmpty() || cBF.getSelectionModel().isEmpty()) {
             labelAlert.setText("You have to put a departure and a destination city."); /*"  + "\n" + "*/
+            labelAlert.setTextFill(Color.rgb(210, 39, 30));
             datosCorrectos = false;
         } else if (cBF.getValue().equals(cBTO.getValue()) ){
             labelAlert.setText("You can't put the same city as departure and destination.");
+            labelAlert.setTextFill(Color.rgb(210, 39, 30));
             datosCorrectos = false; 
         }else {
             ciudadOrigen = (String) cBF.getValue();
@@ -175,16 +178,19 @@ public class FXMLDatosReservaController implements Initializable{
         toDate = dPTO.getValue();
         if (fromDate.equals(toDate)) {
             labelAlert.setText("Invalid date, they are the same date.");
+            labelAlert.setTextFill(Color.rgb(210, 39, 30));
             datosCorrectos = false;
         }
 
         if (A_menor(fromDate, toDate)) {
             labelAlert.setText("Invalid date, returning date is before the departure one.");
+            labelAlert.setTextFill(Color.rgb(210, 39, 30));
             datosCorrectos = false;
         }
             
         if(cBPassang.getSelectionModel().isEmpty()){
             labelAlert.setText("You have to enter a number of Passangers.");
+            labelAlert.setTextFill(Color.rgb(210, 39, 30));
             datosCorrectos = false;
         }else{
             numPasajeros = Integer.parseInt((String)(cBPassang.getValue()));
@@ -192,6 +198,7 @@ public class FXMLDatosReservaController implements Initializable{
         
         if(cBLugg.getSelectionModel().isEmpty()){
             labelAlert.setText("You have to enter a number of Luggage.");
+            labelAlert.setTextFill(Color.rgb(210, 39, 30));
             datosCorrectos = false;
         }else{
             numMaletas =  Integer.parseInt((String)(cBLugg.getValue()));
@@ -206,6 +213,7 @@ public class FXMLDatosReservaController implements Initializable{
             tipoClase = 2;
         } else {
             labelAlert.setText("You have to enter a type of Class.");
+            labelAlert.setTextFill(Color.rgb(210, 39, 30));
             datosCorrectos = false;
         }
         

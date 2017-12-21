@@ -12,10 +12,16 @@ package indieairways.client;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 /**
  * FXML Controller class
@@ -25,14 +31,14 @@ import javafx.scene.image.ImageView;
 public class LoginController implements Initializable {
 
     @FXML private TextField txtUser;
-    @FXML private TextField txtPasswd;
-//    @FXML
-//    private ImageView btnComida;
-//    @FXML
-//    private ImageView btnReservaciones;
+    @FXML private Button btnCreateUser;
+    @FXML private Button btnLogin;
+    @FXML private PasswordField txtPasswd;
+    @FXML private Label labelAlert;
 
     private IndieAirwaysClient application;
 
+    private boolean loginCorrect;
     /**
      * Define la aplicacion principal para manejo de ventanas
      *
@@ -41,22 +47,35 @@ public class LoginController implements Initializable {
     public void setApp(IndieAirwaysClient application) {
         this.application = application;
     }
+    
+    @FXML 
+    private void handleLogin(ActionEvent event) {
+        //Validar el user
+        //Validar que le corresponde la pass
+        loginCorrect = true;
+        
+        if(! txtUser.getText().equals("Carlos") && ! txtPasswd.getText().equals("23")){
+            labelAlert.setText("Wrong User or Password.");
+            labelAlert.setTextFill(Color.rgb(210, 39, 30));
+            loginCorrect = false;
+        }
+        
+    }
+    
+    @FXML
+    private void handleNewUser(ActionEvent event){
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        btnPeliculas.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)
-//                -> {
-//            System.out.println("btnPeliculas");
-//            application.gotoVerPeliculas();
-//        });
-//        btnComida.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)
-//                -> {
-//            System.out.println("btnComida");
-//        });
-//        btnReservaciones.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)
-//                -> {
-//            System.out.println("btnReservaciones");
-//        });
+        btnCreateUser.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            application.gotoCreateUser();
+        });
+        
+        btnLogin.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            application.gotoMenu();
+        });
+
     }
 
 }
