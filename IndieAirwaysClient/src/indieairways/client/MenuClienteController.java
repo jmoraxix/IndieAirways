@@ -30,19 +30,27 @@ public class MenuClienteController extends BaseController {
     @FXML
     private ImageView ivMyInfo;
 
+    
+    /**
+     * It is the initialize of the scene. It is a method that has to be implemented.
+     * The imageviews are given a window to go when they are pushed, in the same name as the
+     * classes they will go to. 
+     *
+     * @param url: not used, ResourceBoundle: not used
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ivBookFli.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-            System.out.println("ivBookFli");
+            //System.out.println("ivBookFli");
             application.gotoVerReserva();
         });
 
         ivMyFli.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-            System.out.println("ivMyFli");
+            //System.out.println("ivMyFli");
         });
 
         ivMyInfo.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-            System.out.println("ivMyInfo");
+            //System.out.println("ivMyInfo");
         });
     }
 

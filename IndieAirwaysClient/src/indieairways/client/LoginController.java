@@ -41,6 +41,11 @@ public class LoginController extends BaseController {
 
     private boolean loginCorrect;
 
+     /**
+     * It validates that the info introduced is correct
+     *
+     * @param event: not used
+     */
     @FXML
     private void handleLogin(ActionEvent event) {
         loginCorrect = true;
@@ -57,6 +62,13 @@ public class LoginController extends BaseController {
     private void handleNewUser(ActionEvent event) {
     }
 
+     /**
+     * It is the initialize of the scene. It is a method that has to be implemented.   
+     * In the case the "create User" button is clicked, it goes to such window.
+     * In the case the house is clicked, it logins correctly, it goes to the Menu window
+     *
+     * @param url: not used, ResourceBoundle: not used
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnCreateUser.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {

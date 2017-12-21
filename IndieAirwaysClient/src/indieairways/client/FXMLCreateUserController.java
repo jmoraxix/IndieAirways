@@ -54,6 +54,16 @@ public class FXMLCreateUserController extends BaseController {
 
     private boolean correctData;
 
+    
+     /**
+     * It handles de event when the "create account" button is clicked
+     * It verifies that the info given is not null and in the case of 
+     * the e-mail that it contains a "@", and in the case of the password
+     * it has to be al least 6 characters long.All the date collected it's 
+     * stored in variables.
+     *
+     * @param event: not used
+     */
     @FXML
     private void handleCreateUser(ActionEvent event) {
         correctData = true;
@@ -111,6 +121,15 @@ public class FXMLCreateUserController extends BaseController {
 
     }
 
+    
+     /**
+     * It is the initialize of the scene. It is a method that has to be implemented.
+     * It contains the events in the cause either the imageview of the arrow is clicked 
+     * when the button is cliked. In the last case it let the application move to another
+     * scene only if the info providate is correct.
+     *
+     * @param url: not used, ResourceBoundle: not used
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 

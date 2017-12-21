@@ -45,6 +45,10 @@ public class IndieAirwaysClient extends Application {
 //    private Cliente cliente;
     private static Reservation reservacion = new Reservation();
     
+    /**
+     * Sets and getters
+     *
+     */
     public void setCiudadO(String ciudadO){
         this.cityO = ciudadO;
     }
@@ -91,6 +95,11 @@ public class IndieAirwaysClient extends Application {
         Application.launch(IndieAirwaysClient.class, (java.lang.String[]) null);
     }
 
+     /**
+     * It starts in the first stage, and sets the parameters
+     * 
+     * @param primaryStage: activates the current stage it has to show
+     */
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -119,8 +128,10 @@ public class IndieAirwaysClient extends Application {
         }
     }
 
-    /**
-     * Cambia el contenido de la ventana al menu principal
+     /**
+     * It changes the stage to the menu
+     * 
+     * @param none
      */
     public void gotoMenu() {
         try {
@@ -131,8 +142,10 @@ public class IndieAirwaysClient extends Application {
         }
     }
 
-    /**
-     * Cambia el contenido de la ventana a la venta de las peliculas
+     /**
+     * It changes the stage to the FXMLDatosReserva
+     * 
+     * @param none
      */
     public void gotoVerReserva() {
         try {
@@ -144,6 +157,11 @@ public class IndieAirwaysClient extends Application {
        }
     }
     
+     /**
+     * It changes the stage to the FXMLCreateUser
+     * 
+     * @param none
+     */
     public void gotoCreateUser(){
         try {
             FXMLCreateUserController verCreateUser = (FXMLCreateUserController) replaceSceneContent("FXMLCreateUser.fxml");
@@ -153,6 +171,11 @@ public class IndieAirwaysClient extends Application {
        }
     }
     
+    /**
+     * It changes the stage to the FXMLReservaOneWay
+     * 
+     * @param none
+     */
     public void gotoReservaOneWay(){
         try {
             FXMLReservaOneWayController verReservaOW = (FXMLReservaOneWayController) replaceSceneContent("FXMLReservaOneWay.fxml");
@@ -163,6 +186,11 @@ public class IndieAirwaysClient extends Application {
        }
     }
     
+    /**
+     * It changes the stage to the FXMLReservaRoundTrip
+     * 
+     * @param none
+     */
     public void gotoReservaRoundTrip(){
         try {
             FXMLReservaRoundTripController verReservaRT = (FXMLReservaRoundTripController) replaceSceneContent("FXMLReservaRoundTrip.fxml");
@@ -173,6 +201,11 @@ public class IndieAirwaysClient extends Application {
        }
     }
     
+    /**
+     * It changes the stage to the FXMLPantallaReservaFinal
+     * 
+     * @param none
+     */
     public void gotoConfirmCode(){
         try {
             FXMLPantallaReservaFinalController verPantallaFinal = (FXMLPantallaReservaFinalController) replaceSceneContent("FXMLPantallaReservaFinal.fxml");
@@ -183,6 +216,11 @@ public class IndieAirwaysClient extends Application {
        }
     }
 
+    /**
+     * It replace each scene to the next one.
+     * 
+     * @param fxml, is the given fxml for the window
+     */
     private Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         InputStream in = IndieAirwaysClient.class.getResourceAsStream(fxml);

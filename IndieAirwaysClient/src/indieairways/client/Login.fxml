@@ -56,7 +56,7 @@
             </TextField>
             <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="168.0" styleClass="titulo2" text="Password:" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" GridPane.rowSpan="2" />
             <Button fx:id="btnLogin" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleLogin" prefHeight="26.0" prefWidth="135.0" styleClass="btnPrincipal" text="Sign in" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="8" />
-            <Button fx:id="btnCreateUser" contentDisplay="CENTER" mnemonicParsing="false" onAction= "#handleNewUser" prefHeight="26.0" prefWidth="135.0" styleClass="btnPrincipal" text="Create User" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8" />
+            <Button fx:id="btnCreateUser" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleNewUser" prefHeight="26.0" prefWidth="135.0" styleClass="btnPrincipal" text="Create User" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8" />
             <PasswordField prefHeight="43.0" prefWidth="118.0" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.rowIndex="5" GridPane.rowSpan="2">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" />

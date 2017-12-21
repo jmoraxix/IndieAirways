@@ -54,6 +54,14 @@ public class FXMLReservaRoundTripController extends BaseController {
     @FXML
     private Button bntCreateReserv;
 
+     /**
+     * It is the initialize of the scene. It is a method that has to be implemented.
+     * Sets the actions to do when the button of the red arrow is clicked (go back)
+     * or the one for the confirmation code is clicked in which case it goes to the next
+     * window.
+     *
+     * @param url: not used, ResourceBoundle: not used
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnBack.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
@@ -65,6 +73,11 @@ public class FXMLReservaRoundTripController extends BaseController {
         });
     }
 
+    /**
+     * It sets the text labels, this info is given already by the user.
+     *
+     * @param depCity: departure city, arriCity: arrival city, depDate: the date of the departure, depDate2: date of the return flight
+     */
     public void setText(String depCity, String arriCity, LocalDate depDate, LocalDate depDate2) {
         lFromC1.setText(depCity);
         lToC1.setText(arriCity);
@@ -75,6 +88,11 @@ public class FXMLReservaRoundTripController extends BaseController {
         lDepDate2.setText(depDate2.toString());
     }
 
+    /**
+     * Calculates the total price of the flight based on the info given by the user.
+     *
+     * @param none
+     */
     public int precio() { //Este metodo debe de calcular el precio del boleto tomando en cuenta la cantidad de pasajeros y las maletas
         int costo = 0;
 

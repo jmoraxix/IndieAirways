@@ -42,7 +42,14 @@ public class FXMLReservaOneWayController extends BaseController {
     @FXML
     private Button bntCreateReserv;
 
-    //public FXMLDatosReservaController datosReserva; 
+    /**
+     * It is the initialize of the scene. It is a method that has to be implemented.
+     * Sets the actions to do when the button of the red arrow is clicked (go back)
+     * or the one for the confirmation code is clicked in which case it goes to the next
+     * window.
+     *
+     * @param url: not used, ResourceBoundle: not used
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO        
@@ -55,17 +62,27 @@ public class FXMLReservaOneWayController extends BaseController {
         });
 
     }
-
+    
+    /**
+     * It sets the text labels, this info is given already by the user.
+     *
+     * @param depCity: departure city, arriCity: arrival city, depDate: the date of the flight
+     */
     public void setText(String depCity, String arriCity, LocalDate depDate) {
         lDepCity.setText(depCity);
         lArriCity.setText(arriCity);
         lDepDate.setText(depDate.toString());
     }
 
-    public int precio() { //Este metodo debe de calcular el precio del boleto tomando en cuenta la cantidad de pasajeros y las maletas
+    /**
+     * Calculates the total price of the flight based on the info given by the user.
+     *
+     * @param none
+     */
+    public int precio() { 
         int costo = 0;
 
         return costo;
     }
 
-} //Fin de la clase FXMLReservaOneWayController 
+} //End of class

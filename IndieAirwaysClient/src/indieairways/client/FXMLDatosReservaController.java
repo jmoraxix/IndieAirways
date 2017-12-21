@@ -59,9 +59,9 @@ public class FXMLDatosReservaController extends BaseController {
     @FXML
     private RadioButton rBFirClass; //Radio Button for First Class
     @FXML
-    private ImageView btnHome;
+    private ImageView btnHome; //Button to go back to the menu
     @FXML
-    private Label labelAlert;
+    private Label labelAlert; //Label that is set when information is missing or wrong
     @FXML
     private Label labelTimer;
     @FXML
@@ -88,12 +88,22 @@ public class FXMLDatosReservaController extends BaseController {
     ObservableList<String> maletas = FXCollections.observableArrayList("1", "2", "3");
     ObservableList<String> pasajeros = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6");
 
+     /**
+     * 
+     *
+     * @param event: not used
+     */
     @FXML
     private void handleOneWay(ActionEvent event) {
         //dPTO.disableProperty();
         dPTO.setEditable(false);
     }
-
+    
+    
+    /**
+     * Getters and Setters
+     *
+     */
     public ComboBox getcBF() {
         return cBF;
     }
@@ -158,6 +168,14 @@ public class FXMLDatosReservaController extends BaseController {
         this.ciudadDestino = ciudadDestino;
     }
 
+    /**
+     * It handles de event when the botton " "  is clicked which validates
+     * if the information given is correct or if the information has to be added
+     * it sends a message to the user. If all the info is correct it stores the info 
+     * given in the variables.
+     *
+     * @param event: not used
+     */
     @FXML
     private void handleBn2Action(ActionEvent event) throws IOException {
 
@@ -248,11 +266,18 @@ public class FXMLDatosReservaController extends BaseController {
 
     }
 
+     /**
+     * It activates the Timer, when the button is pressed.
+     * @param event: not used
+     */
     @FXML
     private void handleTimer(ActionEvent event) {
         runTimer();
     }
 
+    /**
+     * It activates the Thread that it's working as a threat.
+     */
     public void runTimer() {
         //System.out.println("Entra al metodo runTimer");
         //Timer timer = new Timer(1);
@@ -284,11 +309,21 @@ public class FXMLDatosReservaController extends BaseController {
 
     }
 
+    /**
+     * It modifies the label that's working as a countdown
+     * @param n 
+     */
     public void setLabelTimer(int n) {
         labelTimer.setText(String.valueOf(n));
         //labelTimer.setText("60");
     }
 
+    /**
+     * Method to validate if the date for the "return" flight is 
+     * before the departure date.
+     * 
+     * @param l1: the departure date, l2: the return date.
+     */
     public boolean A_menor(LocalDate l1, LocalDate l2) { //Revisa si la fecha es menor
         boolean esMenor = false;
 
@@ -303,6 +338,15 @@ public class FXMLDatosReservaController extends BaseController {
         return esMenor;
     }
 
+    /**
+     * It is the initialize of the scene. It is a method that has to be implemented.
+     * The radio buttons are put in a group together so they are not cliked multiple times.
+     * The combo box are providate with visable array so the user can pick an option.
+     * The two buttons are stablish what they have to do when they are cliked, or advance or
+     * go back to the menu. 
+     * 
+     * @param url: not used, ResourceBoundle: not used
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cBF.getItems().addAll(ciudades);
@@ -333,4 +377,4 @@ public class FXMLDatosReservaController extends BaseController {
         labelTimer.setText("-");
     }
 
-}//Fin de la clase FXMLDatosReservaController
+}//End of the class

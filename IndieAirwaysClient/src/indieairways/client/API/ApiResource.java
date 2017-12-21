@@ -22,7 +22,7 @@ import javax.ws.rs.core.Response;
 public abstract class ApiResource {
 
     protected WebTarget webTarget;
-    protected Client client;
+    protected nClient client;
     protected static final String BASE_URI = "http://localhost:8080/IndieAirways/webresources";
 
     public ApiResource(String path) {
