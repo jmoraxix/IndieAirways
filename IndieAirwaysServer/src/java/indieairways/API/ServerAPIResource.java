@@ -29,9 +29,9 @@ public abstract class ServerAPIResource {
 
     public abstract Response getJson(String param);
 
-    public abstract Response putJson(String content);
+    public abstract Response putJson(String param);
 
-    public abstract Response postJson(String content);
+    public abstract Response postJson(String param);
 
     public abstract Response deleteJson(String param);
 }

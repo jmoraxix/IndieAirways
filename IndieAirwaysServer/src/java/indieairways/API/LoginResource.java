@@ -13,14 +13,13 @@ package indieairways.API;
 import com.google.gson.Gson;
 import indieairways.model.User;
 import indieairways.util.Util;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 
 /**
  * REST Web Service
@@ -29,7 +28,6 @@ import javax.ws.rs.core.UriInfo;
  */
 @Path("login")
 public class LoginResource extends ServerAPIResource {
-
 
     /**
      * Creates a new instance of LoginResource
@@ -44,7 +42,7 @@ public class LoginResource extends ServerAPIResource {
      */
     @GET
     @Override
-    public Response getJson() {
+    public Response getJson(String content) {
         return Response.status(405).build();
     }
 
@@ -60,12 +58,15 @@ public class LoginResource extends ServerAPIResource {
     }
 
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     @Override
-    public Response postJson(@QueryParam("e") String user, @QueryParam("p") String passwd) {
+    public Response postJson(String content) {
+
+        User user = new Gson().fromJson(content, User.class);
 
         for (User u : Util.USER_LIST) {
-            if (u.getUsername().equals(user)) {
-                if (u.getPassword().equals(passwd)) {
+            if (u.getUsername().equals(user.getUsername())) {
+                if (u.getPassword().equals(user.getPassword())) {
                     return Response.ok(new Gson().toJson(u)).build();
                 }
                 return Response.status(401).build();

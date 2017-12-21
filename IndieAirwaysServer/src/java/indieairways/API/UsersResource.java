@@ -71,7 +71,7 @@ public class UsersResource extends ServerAPIResource {
         User usuario = new Gson().fromJson(content, User.class);
 
         for (User u : Util.USER_LIST) {
-            if (u.getUsername().equals(u.getUsername())) {
+            if (u.getUsername().equals(usuario.getUsername())) {
                 u = usuario;
                 return Response.ok().build();
             }

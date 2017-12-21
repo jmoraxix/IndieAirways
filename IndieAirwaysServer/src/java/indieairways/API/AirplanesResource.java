@@ -10,15 +10,14 @@
  */
 package indieairways.API;
 
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -41,21 +40,21 @@ public class AirplanesResource extends ServerAPIResource {
      * indieairways.API.AirplanesResource
      *
      * @param content
+     *
      * @return an instance of java.lang.String
      */
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public String getJson(@QueryParam("u") String airplaneName) {
+    public Response getJson(@QueryParam("a") String airplaneName) {
         //TODO Fix get airplanes
-        
-        for (Airplanes i : Util.USER_LIST) {
-            if (i.getEmail().equals(username)) {
-                return Response.ok(new Gson().toJson(i)).build();
-            }
-        }
 
+//        for (Airplanes i : Util.USER_LIST) {
+//            if (i.getEmail().equals(username)) {
+//                return Response.ok(new Gson().toJson(i)).build();
+//            }
+//        }
         return Response.status(404).build();
     }
 
@@ -66,7 +65,7 @@ public class AirplanesResource extends ServerAPIResource {
      */
     @POST
     @Override
-    public Response postJson() {
+    public Response postJson(String content) {
         return Response.status(405).build();
     }
 
@@ -77,7 +76,7 @@ public class AirplanesResource extends ServerAPIResource {
      */
     @PUT
     @Override
-    public Response putJson() {
+    public Response putJson(String content) {
         return Response.status(405).build();
     }
 
@@ -88,7 +87,7 @@ public class AirplanesResource extends ServerAPIResource {
      */
     @DELETE
     @Override
-    public Response deleteJson() {
+    public Response deleteJson(String content) {
         return Response.status(405).build();
     }
 
