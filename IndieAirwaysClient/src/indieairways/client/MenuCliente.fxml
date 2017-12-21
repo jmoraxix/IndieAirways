@@ -37,9 +37,10 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label prefHeight="39.0" prefWidth="375.0" styleClass="titulo1" text="Welcome To Indie Airways" GridPane.columnIndex="2" GridPane.columnSpan="7" GridPane.rowIndex="1">
+                <Label prefHeight="41.0" prefWidth="414.0" styleClass="titulo1" text="Welcome To Indie Airways" GridPane.columnIndex="2" GridPane.columnSpan="7" GridPane.rowIndex="1">
                     <font>
                         <Font name="System Bold" size="26.0" />
                     </font>
@@ -49,7 +50,7 @@
                         <Image url="@imagenes/airport.png" />
                     </image>
                 </ImageView>
-                <ImageView fx:id="ivMyInfo" fitHeight="128.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true" styleClass="img" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                <ImageView fx:id="ivMyInfo" fitHeight="128.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true" styleClass="img" GridPane.columnIndex="4" GridPane.rowIndex="8">
                     <image>
                         <Image url="@imagenes/setting.png" />
                     </image>
@@ -60,7 +61,7 @@
                     </image>
                 </ImageView>
                 <Label alignment="TOP_CENTER" prefHeight="42.0" prefWidth="135.0" styleClass="titulo2" text="My Flights" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="6" />
-                <Label alignment="TOP_CENTER" prefHeight="38.0" prefWidth="122.0" styleClass="titulo2" text="My info" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="10" />
+                <Label alignment="TOP_CENTER" prefHeight="38.0" prefWidth="122.0" styleClass="titulo2" text="My info" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="10" />
                 <Label alignment="TOP_CENTER" prefHeight="42.0" prefWidth="140.0" styleClass="titulo2" text="Book Flight" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="6" />
             </children>
         </GridPane>

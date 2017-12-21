@@ -36,7 +36,11 @@ public class IndieAirwaysClient extends Application {
     
     private String cityO, cityD; //Ciudad de destino y ciudad de origen
     private LocalDate depDate, depDate2;
-
+    
+    private String confirmCode;
+    
+    private FXMLDatosReservaController reserva;
+    
     //Variables del cliente TCP
 //    private Cliente cliente;
     private static Reservation reservacion = new Reservation();
@@ -56,7 +60,28 @@ public class IndieAirwaysClient extends Application {
     public void setDepDate2(LocalDate depDate2){
         this.depDate2 = depDate2;
     }
-        
+    
+    public void setConfirmCode(String confirmCode){
+        this.confirmCode = confirmCode;
+    }
+    
+    public String getConfirmCode(){
+        return confirmCode;
+    }
+    
+    public void setLabelTimer(FXMLDatosReservaController verReserva, int n){
+        verReserva.setLabelTimer(n);
+    }
+    
+    public void setTipoReserva(FXMLDatosReservaController reserva){
+        this.reserva = reserva; 
+    }
+    
+    public FXMLDatosReservaController getTipoReserva(){
+        return reserva;
+    }
+    
+    
     //TODO Instanciar el hilo para el timer de reserva del vuelo 
     
     /**
@@ -74,7 +99,8 @@ public class IndieAirwaysClient extends Application {
             stage.setMinWidth(WINDOW_WIDTH);
             stage.setMinHeight(WINDOW_HEIGHT);
             //gotoLogin();
-            gotoVerReserva();
+            //gotoVerReserva();
+            gotoMenu();
             primaryStage.show(); 
         } catch (Exception ex) {
             Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
@@ -113,6 +139,7 @@ public class IndieAirwaysClient extends Application {
         try {
             FXMLDatosReservaController verReserva = (FXMLDatosReservaController) replaceSceneContent("FXMLDatosReserva.fxml");
             verReserva.setApp(this);
+            //setTipoReserva(verReserva); //Setea el tipo de reserva
         } catch (Exception ex) {
             Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
        }
@@ -133,6 +160,16 @@ public class IndieAirwaysClient extends Application {
             FXMLReservaRoundTripController verReservaRT = (FXMLReservaRoundTripController) replaceSceneContent("FXMLReservaRoundTrip.fxml");
             verReservaRT.setApp(this);
             verReservaRT.setText(cityO, cityD, depDate, depDate2);
+        } catch (Exception ex) {
+            Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+    
+    public void gotoConfirmCode(){
+        try {
+            FXMLPantallaReservaFinalController verPantallaFinal = (FXMLPantallaReservaFinalController) replaceSceneContent("FXMLPantallaReservaFinal.fxml");
+            verPantallaFinal.setApp(this);
+            verPantallaFinal.setText();
         } catch (Exception ex) {
             Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
        }

@@ -47,6 +47,8 @@ public class Util {
     public static ObservableList<Airplane> AIRPLANE_LIST = FXCollections.observableArrayList();
     public static ObservableList<Reservation> RESERVATION_LIST = FXCollections.observableArrayList();
     public static ObservableList<Flight> FLIGHT_LIST = FXCollections.observableArrayList();
+    
+    public int contadorConfirmCode = 0;
 
 //    public static ObservableList<Sala> getSalas() {
 //        Util.LISTA_SALAS.add(new Sala(1, 50));
@@ -66,7 +68,10 @@ public class Util {
 //        return salas;
 //    }
     
-    
+    public void aumentaContador(){
+        System.out.print("Antes de aumentar el valor es: " + contadorConfirmCode);
+        contadorConfirmCode++;
+    }
     
     
     public void generateData(){

@@ -25,7 +25,6 @@ import javafx.scene.input.MouseEvent;
 public class FXMLReservaOneWayController implements Initializable {
 
     @FXML private ImageView btnBack;
-    @FXML private Button bNext;
     @FXML private Label lPrice;
     @FXML private Label lDepDate;
     @FXML private Label lDepTime;
@@ -34,6 +33,7 @@ public class FXMLReservaOneWayController implements Initializable {
     @FXML private Label lDepCity; //cBF
     @FXML private Label lArriCity; //cBTO
     @FXML private Label lFliNum;
+    @FXML private Button bntCreateReserv;
     
     //public FXMLDatosReservaController datosReserva; 
     
@@ -50,6 +50,10 @@ public class FXMLReservaOneWayController implements Initializable {
             application.gotoVerReserva();
         });
         
+        bntCreateReserv.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)-> { //Ir a la pantalla anterior
+            application.gotoConfirmCode();
+        });
+
     }   
     
     public void setText(String depCity, String arriCity, LocalDate depDate){
@@ -65,4 +69,4 @@ public class FXMLReservaOneWayController implements Initializable {
         return costo;
     }
     
-} //Fin de la clase FXMLReservaOneWayController
+} //Fin de la clase FXMLReservaOneWayController 

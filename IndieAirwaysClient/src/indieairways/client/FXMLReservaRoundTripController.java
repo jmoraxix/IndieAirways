@@ -38,6 +38,7 @@ public class FXMLReservaRoundTripController implements Initializable {
     @FXML private Label lDepTime2;
     @FXML private Label lFliTime1; //Duracion de los vuelos
     @FXML private Label lFliTime2;
+    @FXML private Button bntCreateReserv;
     
     
     private IndieAirwaysClient application;
@@ -50,6 +51,10 @@ public class FXMLReservaRoundTripController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
        btnBack.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)-> {
             application.gotoVerReserva();
+        });
+       
+       bntCreateReserv.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)-> { //Ir a la pantalla anterior
+            application.gotoConfirmCode();
         });
     }    
     
