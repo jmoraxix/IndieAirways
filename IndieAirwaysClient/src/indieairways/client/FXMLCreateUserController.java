@@ -15,7 +15,6 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -29,107 +28,104 @@ import javafx.scene.paint.Color;
  *
  * @author Carlos
  */
-public class FXMLCreateUserController implements Initializable {
+public class FXMLCreateUserController extends BaseController {
 
-    @FXML private Label labelName;
-    @FXML private Label labelLastName;
-    @FXML private DatePicker datePBirth;
-    @FXML private Label labelEmail;
-    @FXML private PasswordField passField;
-    @FXML private Button btnCreate;
-    @FXML private Label labelAlert;
-    @FXML private Label labelUserName;
-    @FXML private ImageView btnReturnLogin;
-    
-    private IndieAirwaysClient application;
-    
+    @FXML
+    private Label labelName;
+    @FXML
+    private Label labelLastName;
+    @FXML
+    private DatePicker datePBirth;
+    @FXML
+    private Label labelEmail;
+    @FXML
+    private PasswordField passField;
+    @FXML
+    private Button btnCreate;
+    @FXML
+    private Label labelAlert;
+    @FXML
+    private Label labelUserName;
+    @FXML
+    private ImageView btnReturnLogin;
+
     private String name, lastName, email, password, user;
     private LocalDate birth;
 
     private boolean correctData;
-    
-    /**
-     * Define la aplicacion principal para manejo de ventanas
-     *
-     * @param application
-     */
-    
-    public void setApp(IndieAirwaysClient application) {
-        this.application = application;
-    }
-    
+
     @FXML
-    private void handleCreateUser(ActionEvent event){        
+    private void handleCreateUser(ActionEvent event) {
         correctData = true;
-        
-        if(labelName.getText().equals("")){
+
+        if (labelName.getText().equals("")) {
             labelAlert.setText("You have to enter a Name.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             correctData = false;
-        }else{
+        } else {
             name = labelName.getText();
         }
-        
-        if(labelLastName.getText().equals("")){
+
+        if (labelLastName.getText().equals("")) {
             labelAlert.setText("You have to enter a Last Name.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             correctData = false;
-        }else{
+        } else {
             lastName = labelLastName.getText();
         }
-        
-       birth = datePBirth.getValue(); //Validar que no sea un día en el futuro
+
+        birth = datePBirth.getValue(); //Validar que no sea un día en el futuro
 //        if (fromDate.equals(toDate)) {
 //            labelAlert.setText("Invalid date, they are the same date.");
 //            labelAlert.setTextFill(Color.rgb(210, 39, 30));
 //            correctData = false;
 //        }
-        
-       if(labelUserName.getText().equals("")){ //Falta validar que no este siendo utilizado por alguien mas
+
+        if (labelUserName.getText().equals("")) { //Falta validar que no este siendo utilizado por alguien mas
             labelAlert.setText("You have to enter a Last Name.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             correctData = false;
-        }else{
+        } else {
             user = labelUserName.getText();
         }
-       
-        
-        if(labelEmail.getText().equals("")){
+
+        if (labelEmail.getText().equals("")) {
             labelAlert.setText("You have to enter a Email.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             correctData = false;
-        }else if(!(labelEmail.getText().contains("@"))){
+        } else if (!(labelEmail.getText().contains("@"))) {
             labelAlert.setText("You have to enter a correct Email.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             correctData = false;
-        }else{
+        } else {
             email = labelEmail.getText();
         }
-        
-        if(passField.getText().length() < 6 ){
+
+        if (passField.getText().length() < 6) {
             labelAlert.setText("You have to enter a longer password.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             correctData = false;
-        }else{
+        } else {
             password = passField.getText();
         }
-        
+
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         btnCreate.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-            if(correctData)
+            if (correctData) {
                 application.gotoMenu();
+            }
         });
-        
-        btnReturnLogin.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)-> { //Ir a la pantalla anterior
+
+        btnReturnLogin.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> { //Ir a la pantalla anterior
             application.gotoLogin();
         });
-        
+
         labelAlert.setText("");
-        
-    }    
-    
+
+    }
+
 }

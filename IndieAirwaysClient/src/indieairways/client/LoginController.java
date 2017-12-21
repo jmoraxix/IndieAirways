@@ -14,12 +14,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
@@ -28,40 +26,35 @@ import javafx.scene.paint.Color;
  *
  * @author jmora
  */
-public class LoginController implements Initializable {
+public class LoginController extends BaseController {
 
-    @FXML private TextField txtUser;
-    @FXML private Button btnCreateUser;
-    @FXML private Button btnLogin;
-    @FXML private PasswordField txtPasswd;
-    @FXML private Label labelAlert;
-
-    private IndieAirwaysClient application;
+    @FXML
+    private TextField txtUser;
+    @FXML
+    private Button btnCreateUser;
+    @FXML
+    private Button btnLogin;
+    @FXML
+    private PasswordField txtPasswd;
+    @FXML
+    private Label labelAlert;
 
     private boolean loginCorrect;
-    /**
-     * Define la aplicacion principal para manejo de ventanas
-     *
-     * @param application
-     */
-    public void setApp(IndieAirwaysClient application) {
-        this.application = application;
-    }
-    
-    @FXML 
+
+    @FXML
     private void handleLogin(ActionEvent event) {
         loginCorrect = true;
-        
-        if(! txtUser.getText().equals("Carlos") && ! txtPasswd.getText().equals("23")){
+
+        if (!txtUser.getText().equals("Carlos") && !txtPasswd.getText().equals("23")) {
             labelAlert.setText("Wrong User or Password.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             loginCorrect = false;
         }
-        
+
     }
-    
+
     @FXML
-    private void handleNewUser(ActionEvent event){
+    private void handleNewUser(ActionEvent event) {
     }
 
     @Override
@@ -69,13 +62,13 @@ public class LoginController implements Initializable {
         btnCreateUser.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             application.gotoCreateUser();
         });
-        
+
         btnLogin.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             application.gotoMenu();
         });
 
         labelAlert.setText("");
-        
+
     }
 
 }

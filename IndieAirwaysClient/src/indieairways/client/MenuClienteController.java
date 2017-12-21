@@ -13,7 +13,6 @@ package indieairways.client;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -22,35 +21,27 @@ import javafx.scene.input.MouseEvent;
  *
  * @author jmora
  */
-public class MenuClienteController implements Initializable {
+public class MenuClienteController extends BaseController {
 
-    @FXML private ImageView ivBookFli;
-    @FXML private ImageView ivMyFli;
-    @FXML private ImageView ivMyInfo;
-
-    private IndieAirwaysClient application;
-
-    /**
-     * Define la aplicacion principal para manejo de ventanas
-     *
-     * @param application
-     */
-    public void setApp(IndieAirwaysClient application) {
-        this.application = application;
-    }
+    @FXML
+    private ImageView ivBookFli;
+    @FXML
+    private ImageView ivMyFli;
+    @FXML
+    private ImageView ivMyInfo;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ivBookFli.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)-> {
+        ivBookFli.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             System.out.println("ivBookFli");
             application.gotoVerReserva();
         });
-        
-        ivMyFli.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)-> {
+
+        ivMyFli.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             System.out.println("ivMyFli");
         });
-        
-        ivMyInfo.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)-> {
+
+        ivMyInfo.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             System.out.println("ivMyInfo");
         });
     }

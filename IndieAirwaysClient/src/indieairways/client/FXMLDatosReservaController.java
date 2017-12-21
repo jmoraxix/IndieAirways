@@ -21,7 +21,6 @@ import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DateCell;
@@ -33,26 +32,40 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-public class FXMLDatosReservaController implements Initializable{
+public class FXMLDatosReservaController extends BaseController {
 
-    @FXML private Button bn2; //Boton de ok
-    @FXML private ComboBox cBF; //ComboBox From
-    @FXML private ComboBox cBTO; //ComboBoz To
-    @FXML private DatePicker dPF; //DatePicker From
-    @FXML private DatePicker dPTO; //DatePicker To
-    @FXML private RadioButton rBOW; //RadioButton One-Way
-    @FXML private RadioButton rBRT; //RadioButton Round Trip
-    @FXML private ComboBox cBLugg; //Combo Box for quantity of luggage
-    @FXML private ComboBox cBPassang;  //Cambo Box for quantity of passangers
-    @FXML private RadioButton rBEconomy; //Radio Button for Economy Class
-    @FXML private RadioButton rBBuis; //Radio Button for Buisness Class
-    @FXML private RadioButton rBFirClass; //Radio Button for First Class
-    @FXML private ImageView btnHome;
-    @FXML private Label labelAlert;
-    @FXML private Label labelTimer;
-    @FXML private Button btnPrueba;
-
-    private IndieAirwaysClient application;
+    @FXML
+    private Button bn2; //Boton de ok
+    @FXML
+    private ComboBox cBF; //ComboBox From
+    @FXML
+    private ComboBox cBTO; //ComboBoz To
+    @FXML
+    private DatePicker dPF; //DatePicker From
+    @FXML
+    private DatePicker dPTO; //DatePicker To
+    @FXML
+    private RadioButton rBOW; //RadioButton One-Way
+    @FXML
+    private RadioButton rBRT; //RadioButton Round Trip
+    @FXML
+    private ComboBox cBLugg; //Combo Box for quantity of luggage
+    @FXML
+    private ComboBox cBPassang;  //Cambo Box for quantity of passangers
+    @FXML
+    private RadioButton rBEconomy; //Radio Button for Economy Class
+    @FXML
+    private RadioButton rBBuis; //Radio Button for Buisness Class
+    @FXML
+    private RadioButton rBFirClass; //Radio Button for First Class
+    @FXML
+    private ImageView btnHome;
+    @FXML
+    private Label labelAlert;
+    @FXML
+    private Label labelTimer;
+    @FXML
+    private Button btnPrueba;
 
     private final ToggleGroup tipoVueloTG = new ToggleGroup();
     private final ToggleGroup tipoClaseTG = new ToggleGroup();
@@ -68,7 +81,7 @@ public class FXMLDatosReservaController implements Initializable{
     private int numPasajeros;
     private int numMaletas;
     private boolean datosCorrectos;
-    
+
     private Service<Void> thread; //= new Service<Void>;
 
     ObservableList<String> ciudades = FXCollections.observableArrayList("San Jose", "Tokyo", "Milan", "Barcelona", "Cairo");
@@ -80,7 +93,7 @@ public class FXMLDatosReservaController implements Initializable{
         //dPTO.disableProperty();
         dPTO.setEditable(false);
     }
-    
+
     public ComboBox getcBF() {
         return cBF;
     }
@@ -144,32 +157,33 @@ public class FXMLDatosReservaController implements Initializable{
     public void setCiudadDestino(String ciudadDestino) {
         this.ciudadDestino = ciudadDestino;
     }
-    
+
     @FXML
     private void handleBn2Action(ActionEvent event) throws IOException {
 
         datosCorrectos = true;
-                
+
         //Valida los radio button del tipo vuelo
         if (rBOW.isSelected()) {
             tipoVuelo = 0;
         } else if (rBRT.isSelected()) {
             tipoVuelo = 1;
-        } else{
+        } else {
             labelAlert.setText("You have to enter a type of flight");
             datosCorrectos = false;
         }
 
         //Validaciones para los comboBox
         if (cBTO.getSelectionModel().isEmpty() || cBF.getSelectionModel().isEmpty()) {
-            labelAlert.setText("You have to put a departure and a destination city."); /*"  + "\n" + "*/
+            labelAlert.setText("You have to put a departure and a destination city.");
+            /*"  + "\n" + "*/
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             datosCorrectos = false;
-        } else if (cBF.getValue().equals(cBTO.getValue()) ){
+        } else if (cBF.getValue().equals(cBTO.getValue())) {
             labelAlert.setText("You can't put the same city as departure and destination.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
-            datosCorrectos = false; 
-        }else {
+            datosCorrectos = false;
+        } else {
             ciudadOrigen = (String) cBF.getValue();
             ciudadDestino = (String) cBTO.getValue();
         }
@@ -187,23 +201,22 @@ public class FXMLDatosReservaController implements Initializable{
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             datosCorrectos = false;
         }
-            
-        if(cBPassang.getSelectionModel().isEmpty()){
+
+        if (cBPassang.getSelectionModel().isEmpty()) {
             labelAlert.setText("You have to enter a number of Passangers.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             datosCorrectos = false;
-        }else{
-            numPasajeros = Integer.parseInt((String)(cBPassang.getValue()));
+        } else {
+            numPasajeros = Integer.parseInt((String) (cBPassang.getValue()));
         }
-        
-        if(cBLugg.getSelectionModel().isEmpty()){
+
+        if (cBLugg.getSelectionModel().isEmpty()) {
             labelAlert.setText("You have to enter a number of Luggage.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             datosCorrectos = false;
-        }else{
-            numMaletas =  Integer.parseInt((String)(cBLugg.getValue()));
+        } else {
+            numMaletas = Integer.parseInt((String) (cBLugg.getValue()));
         }
-        
 
         if (rBEconomy.isSelected()) {
             tipoClase = 0;
@@ -216,66 +229,66 @@ public class FXMLDatosReservaController implements Initializable{
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             datosCorrectos = false;
         }
-        
+
         application.setCiudadO(ciudadOrigen);
         application.setCityD(ciudadDestino);
         application.setDepDate(fromDate);
-        
-        if(tipoVuelo == 1){
+
+        if (tipoVuelo == 1) {
             application.setCiudadO(ciudadOrigen);
             application.setCityD(ciudadDestino);
             application.setDepDate(fromDate);
             application.setDepDate2(toDate);
         }
-            
+
         System.out.println("Tipo de vuelo es " + tipoVuelo + "\nCiudad Origen: " + ciudadOrigen
                 + "\nCiudad Destino: " + ciudadDestino + "\nFecha Salida: " + fromDate
                 + "\nFecha de Regreso: " + toDate + "\nNumero de pasajeros: " + numPasajeros
                 + "\nNumero de maletas: " + numMaletas + "\nTipo de Clase: " + tipoClase);
 
     }
-    
+
     @FXML
     private void handleTimer(ActionEvent event) {
         runTimer();
     }
-    
-    public void runTimer(){
+
+    public void runTimer() {
         //System.out.println("Entra al metodo runTimer");
         //Timer timer = new Timer(1);
         ///timer.start();
-        thread = new Service<Void>(){
+        thread = new Service<Void>() {
 
             @Override
             protected Task<Void> createTask() {
-                return new Task<Void>(){
+                return new Task<Void>() {
 
                     @Override
                     protected Void call() throws Exception {
-                        for(int i = 1000000000; i >= 0; i--){
+                        for (int i = 1000000000; i >= 0; i--) {
                             //setLabelTimer(i);
                             updateMessage(String.valueOf(i));
-                            
+
                         }
                         return null;
                         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
                     }
                 };
                 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            } 
+            }
         };
-        
+
         labelTimer.textProperty().bind(thread.messageProperty());
         //labelTimer.textProperty().unbind();
         thread.restart();
-        
+
     }
-    
-    public void setLabelTimer(int n){
+
+    public void setLabelTimer(int n) {
         labelTimer.setText(String.valueOf(n));
         //labelTimer.setText("60");
     }
-   
+
     public boolean A_menor(LocalDate l1, LocalDate l2) { //Revisa si la fecha es menor
         boolean esMenor = false;
 
@@ -290,17 +303,13 @@ public class FXMLDatosReservaController implements Initializable{
         return esMenor;
     }
 
-    public void setApp(IndieAirwaysClient application) {
-        this.application = application;
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cBF.getItems().addAll(ciudades);
         cBTO.getItems().addAll(ciudades);
         cBLugg.getItems().addAll(maletas);
         cBPassang.getItems().addAll(pasajeros);
-        
+
         rBOW.setToggleGroup(tipoVueloTG);
         rBRT.setToggleGroup(tipoVueloTG);
 
@@ -309,12 +318,13 @@ public class FXMLDatosReservaController implements Initializable{
         rBFirClass.setToggleGroup(tipoClaseTG);
 
         bn2.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-            if(tipoVuelo == 0 && datosCorrectos)
-                application.gotoReservaOneWay(); 
-            else if(tipoVuelo == 1 && datosCorrectos)
+            if (tipoVuelo == 0 && datosCorrectos) {
+                application.gotoReservaOneWay();
+            } else if (tipoVuelo == 1 && datosCorrectos) {
                 application.gotoReservaRoundTrip();
+            }
         });
-        
+
         btnHome.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             application.gotoMenu();
         });
@@ -322,5 +332,5 @@ public class FXMLDatosReservaController implements Initializable{
         //runTimer();
         labelTimer.setText("-");
     }
-    
+
 }//Fin de la clase FXMLDatosReservaController
