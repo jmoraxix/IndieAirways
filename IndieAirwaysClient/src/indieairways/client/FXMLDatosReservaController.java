@@ -32,6 +32,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
+/**
+ *
+ * @author jmora
+ */
 public class FXMLDatosReservaController extends BaseController {
 
     @FXML

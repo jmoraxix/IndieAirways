@@ -20,6 +20,9 @@ import javafx.fxml.Initializable;
  */
 public abstract class BaseController implements Initializable {
 
+    /**
+     *
+     */
     protected IndieAirwaysClient application;
 
     /**

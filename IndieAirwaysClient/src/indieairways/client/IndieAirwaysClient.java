@@ -131,7 +131,6 @@ public class IndieAirwaysClient extends Application {
      /**
      * It changes the stage to the menu
      * 
-     * @param none
      */
     public void gotoMenu() {
         try {
@@ -174,7 +173,6 @@ public class IndieAirwaysClient extends Application {
     /**
      * It changes the stage to the FXMLReservaOneWay
      * 
-     * @param none
      */
     public void gotoReservaOneWay(){
         try {

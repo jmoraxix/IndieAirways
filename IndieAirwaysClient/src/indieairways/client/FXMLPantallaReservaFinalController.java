@@ -33,8 +33,8 @@ public class FXMLPantallaReservaFinalController extends BaseController {
     private Util util; //Para llamar al numero de confirmacion
 
     /**
-     * It is the initialize of the scene. It is a method that has to be implemented.
-     * Only the button to go back to the menu is initialized.
+     * It is the initialize of the scene. It is a method that has to be
+     * implemented. Only the button to go back to the menu is initialized.
      *
      * @param url: not used, ResourceBoundle: not used
      */
@@ -49,14 +49,13 @@ public class FXMLPantallaReservaFinalController extends BaseController {
     /**
      * Method to set the label's info.
      *
-     * @param none
      */
     public void setText() {
         util.aumentaContador();
         labelConfiCode.setText(generateConCode(util.contadorConfirmCode));
     }
 
-     /**
+    /**
      * It generates the confirmation code
      *
      * @param x, the numbe attatched to the string.

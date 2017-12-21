@@ -19,6 +19,10 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+/**
+ *
+ * @author jmora
+ */
 public class FXMLReservaRoundTripController extends BaseController {
 
     @FXML
