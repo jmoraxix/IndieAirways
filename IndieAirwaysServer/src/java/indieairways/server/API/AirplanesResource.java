@@ -8,7 +8,7 @@
  * Tercer cuatrimestre, 2017
  * Ulacit
  */
-package indieairways.API;
+package indieairways.server.API;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -26,18 +26,19 @@ import javax.ws.rs.core.Response;
  *
  * @author emilioevans
  */
-@Path("Sectors")
-public class SectorsResource extends ServerAPIResource {
+@Path("airplanes")
+public class AirplanesResource extends ServerAPIResource {
 
     /**
-     * Creates a new instance of SectorsResource
+     * Creates a new instance of AirplanesResource
      */
-    public SectorsResource() {
+    public AirplanesResource() {
     }
 
     /**
      * Retrieves representation of an instance of
-     * indieairways.API.SectorsResource
+     * indieairways.API.AirplanesResource
+     *
      *
      * @return an instance of java.lang.String
      */
@@ -57,18 +58,7 @@ public class SectorsResource extends ServerAPIResource {
     }
 
     /**
-     * PUT method for updating or creating an instance of SectorsResource
-     *
-     * @param content representation for the resource
-     */
-    @PUT
-    @Override
-    public Response putJson(String content) {
-        return Response.status(405).build();
-    }
-
-    /**
-     * POST method for updating or creating an instance of SectorsResource
+     * POST method for updating or creating an instance of AirplanesResource
      *
      * @return 405 Response
      */
@@ -79,7 +69,18 @@ public class SectorsResource extends ServerAPIResource {
     }
 
     /**
-     * DELETE method for deleting an instance of SectorsResource
+     * PUT method for updating or creating an instance of AirplanesResource
+     *
+     * @return 405 Response
+     */
+    @PUT
+    @Override
+    public Response putJson(String content) {
+        return Response.status(405).build();
+    }
+
+    /**
+     * DELETE method for deleting an instance of AirplanesResource
      *
      * @return 405 Response
      */

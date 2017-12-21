@@ -8,7 +8,7 @@
  * Tercer cuatrimestre, 2017
  * Ulacit
  */
-package indieairways.API;
+package indieairways.server.API;
 
 import com.google.gson.Gson;
 import indieairways.model.User;
@@ -116,7 +116,6 @@ public class UsersResource extends ServerAPIResource {
     /**
      * DELETE method for deleting users
      *
-     * @param content representation for the resource
      */
     @DELETE
     @Consumes(MediaType.TEXT_PLAIN)

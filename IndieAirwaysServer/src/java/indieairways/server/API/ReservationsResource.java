@@ -8,7 +8,7 @@
  * Tercer cuatrimestre, 2017
  * Ulacit
  */
-package indieairways.API;
+package indieairways.server.API;
 
 import com.google.gson.Gson;
 import indieairways.model.Reservation;

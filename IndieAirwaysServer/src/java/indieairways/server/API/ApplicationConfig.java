@@ -8,7 +8,7 @@
  * Tercer cuatrimestre, 2017
  * Ulacit
  */
-package indieairways.API;
+package indieairways.server.API;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;
@@ -34,13 +34,13 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(indieairways.API.AirplanesResource.class);
-        resources.add(indieairways.API.AirportsResource.class);
-        resources.add(indieairways.API.FlightsResource.class);
-        resources.add(indieairways.API.LoginResource.class);
-        resources.add(indieairways.API.ReservationsResource.class);
-        resources.add(indieairways.API.SectorsResource.class);
-        resources.add(indieairways.API.UsersResource.class);
+        resources.add(indieairways.server.API.AirplanesResource.class);
+        resources.add(indieairways.server.API.AirportsResource.class);
+        resources.add(indieairways.server.API.FlightsResource.class);
+        resources.add(indieairways.server.API.LoginResource.class);
+        resources.add(indieairways.server.API.ReservationsResource.class);
+        resources.add(indieairways.server.API.SectorsResource.class);
+        resources.add(indieairways.server.API.UsersResource.class);
     }
     
 }

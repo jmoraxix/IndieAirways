@@ -8,7 +8,7 @@
  * Tercer cuatrimestre, 2017
  * Ulacit
  */
-package indieairways.API;
+package indieairways.server.API;
 
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
