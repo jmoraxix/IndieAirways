@@ -20,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
@@ -37,18 +38,22 @@ public class FXMLCreateUserController implements Initializable {
     @FXML private PasswordField passField;
     @FXML private Button btnCreate;
     @FXML private Label labelAlert;
+    @FXML private Label labelUserName;
+    @FXML private ImageView btnReturnLogin;
     
     private IndieAirwaysClient application;
     
-    private String name, lastName, email, password;
+    private String name, lastName, email, password, user;
     private LocalDate birth;
 
     private boolean correctData;
+    
     /**
      * Define la aplicacion principal para manejo de ventanas
      *
      * @param application
      */
+    
     public void setApp(IndieAirwaysClient application) {
         this.application = application;
     }
@@ -80,6 +85,14 @@ public class FXMLCreateUserController implements Initializable {
 //            correctData = false;
 //        }
         
+       if(labelUserName.getText().equals("")){ //Falta validar que no este siendo utilizado por alguien mas
+            labelAlert.setText("You have to enter a Last Name.");
+            labelAlert.setTextFill(Color.rgb(210, 39, 30));
+            correctData = false;
+        }else{
+            user = labelUserName.getText();
+        }
+       
         
         if(labelEmail.getText().equals("")){
             labelAlert.setText("You have to enter a Email.");
@@ -103,9 +116,6 @@ public class FXMLCreateUserController implements Initializable {
         
     }
     
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -113,6 +123,12 @@ public class FXMLCreateUserController implements Initializable {
             if(correctData)
                 application.gotoMenu();
         });
+        
+        btnReturnLogin.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)-> { //Ir a la pantalla anterior
+            application.gotoLogin();
+        });
+        
+        labelAlert.setText("");
         
     }    
     

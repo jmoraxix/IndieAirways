@@ -50,8 +50,6 @@ public class LoginController implements Initializable {
     
     @FXML 
     private void handleLogin(ActionEvent event) {
-        //Validar el user
-        //Validar que le corresponde la pass
         loginCorrect = true;
         
         if(! txtUser.getText().equals("Carlos") && ! txtPasswd.getText().equals("23")){
@@ -76,6 +74,8 @@ public class LoginController implements Initializable {
             application.gotoMenu();
         });
 
+        labelAlert.setText("");
+        
     }
 
 }

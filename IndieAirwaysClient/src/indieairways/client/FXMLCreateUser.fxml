@@ -5,6 +5,8 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -74,6 +76,17 @@
             <PasswordField fx:id="passField" prefHeight="27.0" prefWidth="120.0" GridPane.columnIndex="7" GridPane.columnSpan="3" GridPane.rowIndex="6" />
             <Button fx:id="btnCreate" mnemonicParsing="false" onAction="#handleCreateUser" prefHeight="31.0" prefWidth="78.0" text="Create" GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
             <Label fx:id="labelAlert" prefHeight="32.0" prefWidth="358.0" text="Label" GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.rowIndex="7" />
+            <Label text="Username:" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <Label fx:id="labelUserName" prefHeight="22.0" prefWidth="110.0" text="Label" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </Label>
+            <ImageView fx:id="btnReturnLogin" fitHeight="46.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@imagenes/atras.png" />
+               </image>
+            </ImageView>
          </children>
       </GridPane>
    </children>

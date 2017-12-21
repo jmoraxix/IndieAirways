@@ -98,9 +98,8 @@ public class IndieAirwaysClient extends Application {
             stage.setTitle("Indie Airways");
             stage.setMinWidth(WINDOW_WIDTH);
             stage.setMinHeight(WINDOW_HEIGHT);
-            //gotoLogin();
-            //gotoVerReserva();
-            gotoMenu();
+            gotoLogin();
+            //gotoMenu();
             primaryStage.show(); 
         } catch (Exception ex) {
             Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
@@ -147,7 +146,7 @@ public class IndieAirwaysClient extends Application {
     
     public void gotoCreateUser(){
         try {
-            FXMLCreateUserController verCreateUser = (FXMLCreateUserController) replaceSceneContent("FXMLFXMLCreateUser.fxml");
+            FXMLCreateUserController verCreateUser = (FXMLCreateUserController) replaceSceneContent("FXMLCreateUser.fxml");
             verCreateUser.setApp(this);
         } catch (Exception ex) {
             Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
