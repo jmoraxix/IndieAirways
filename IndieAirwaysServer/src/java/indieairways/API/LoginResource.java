@@ -13,21 +13,14 @@ package indieairways.API;
 import com.google.gson.Gson;
 import indieairways.model.User;
 import indieairways.util.Util;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 
 /**
  * REST Web Service
@@ -35,10 +28,8 @@ import javax.ws.rs.core.Response;
  * @author jdmoralo
  */
 @Path("login")
-public class LoginResource {
+public class LoginResource extends ServerAPIResource {
 
-    @Context
-    private UriInfo context;
 
     /**
      * Creates a new instance of LoginResource
@@ -48,39 +39,33 @@ public class LoginResource {
 
     /**
      * Retrieves representation of an instance of API.LoginResource
+     *
      * @return an instance of java.lang.String
      */
     @GET
+    @Override
     public Response getJson() {
         return Response.status(405).build();
     }
 
     /**
      * PUT method for updating or creating an instance of LoginResource
+     *
      * @param content representation for the resource
      */
     @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Override
     public Response putJson(String content) {
         return Response.status(405).build();
     }
-    
+
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Override
     public Response postJson(@QueryParam("e") String user, @QueryParam("p") String passwd) {
 
-        // Generating MD5 password
-        MessageDigest mdPasswd = null;
-        try {
-            mdPasswd = MessageDigest.getInstance("MD5");
-            mdPasswd.update(passwd.getBytes());
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(UserResources.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
         for (User u : Util.USER_LIST) {
             if (u.getUsername().equals(user)) {
-                if (u.getPassword().equals(mdPasswd.digest())) {
+                if (u.getPassword().equals(passwd)) {
                     return Response.ok(new Gson().toJson(u)).build();
                 }
                 return Response.status(401).build();
@@ -88,5 +73,16 @@ public class LoginResource {
         }
 
         return Response.status(404).build();
+    }
+
+    /**
+     * DELETE method for removing an instance of LoginResource
+     *
+     * @param content representation for the resource
+     */
+    @PUT
+    @Override
+    public Response deleteJson(String content) {
+        return Response.status(405).build();
     }
 }

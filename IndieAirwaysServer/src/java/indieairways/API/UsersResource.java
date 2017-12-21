@@ -13,10 +13,6 @@ package indieairways.API;
 import com.google.gson.Gson;
 import indieairways.model.User;
 import indieairways.util.Util;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -25,10 +21,8 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 
 /**
  * REST Web Service
@@ -36,39 +30,28 @@ import javax.ws.rs.core.UriInfo;
  * @author jmora
  */
 @Path("users")
-public class UserResources {
-
-    @Context
-    private UriInfo context;
+public class UsersResource extends ServerAPIResource {
 
     /**
      * Creates a new instance of UserResource
      */
-    public UserResources() {
+    public UsersResource() {
     }
 
     /**
-     * Retrieves representation of an instance of API.UserResources
+     * Retrieves representation of an instance of API.UsersResource
      *
      * @return an instance of java.lang.String
      */
     @GET
+    @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getJson(@QueryParam("u") String username, @QueryParam("p") String password) {
+    @Override
+    public Response getJson(@QueryParam("u") String username) {
 
-        // Generating MD5 password
-        MessageDigest md = null;
-        try {
-            md = MessageDigest.getInstance("MD5");
-            md.update(password.getBytes());
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(UserResources.class.getName()).log(Level.SEVERE, null, ex);
-        }
         for (User i : Util.USER_LIST) {
             if (i.getEmail().equals(username)) {
-                if (i.getPassword().equals(md.digest())) {
-                    return Response.ok(new Gson().toJson(i)).build();
-                }
+                return Response.ok(new Gson().toJson(i)).build();
             }
         }
 
@@ -82,6 +65,7 @@ public class UserResources {
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
+    @Override
     public Response putJson(String content) {
 
         User usuario = new Gson().fromJson(content, User.class);
@@ -103,6 +87,7 @@ public class UserResources {
      */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Override
     public Response postJson(String content) {
 
         User usuario = new Gson().fromJson(content, User.class);
@@ -127,16 +112,18 @@ public class UserResources {
 
         return Response.ok().build();
     }
-    
+
     /**
      * DELETE method for deleting users
      *
      * @param content representation for the resource
      */
     @DELETE
-    public Response deleteJson(@QueryParam("s") String session, @QueryParam("u") String username) {
-        
-        // @TODO Add delete method to UserResources
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Override
+    public Response deleteJson(@QueryParam("u") String username) {
+
+        // @TODO Add delete method to UsersResource
         return Response.ok().build();
     }
 }

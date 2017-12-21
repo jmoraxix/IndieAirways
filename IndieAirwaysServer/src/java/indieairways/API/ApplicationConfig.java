@@ -34,8 +34,13 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(indieairways.API.AirplanesResource.class);
+        resources.add(indieairways.API.AirportsResource.class);
+        resources.add(indieairways.API.FlightsResource.class);
         resources.add(indieairways.API.LoginResource.class);
-        resources.add(indieairways.API.UserResources.class);
+        resources.add(indieairways.API.ReservationsResource.class);
+        resources.add(indieairways.API.SectorsResource.class);
+        resources.add(indieairways.API.UsersResource.class);
     }
     
 }
