@@ -27,7 +27,15 @@ import javafx.collections.ObservableList;
 public class Util {
 
     //Variables de las ventanas
+
+    /**
+     *
+     */
     public static int WIDTH = 642;
+
+    /**
+     *
+     */
     public static int HEIGHT = 528;
 
 //    public static int SERVER_PORT = 2356;
@@ -41,13 +49,40 @@ public class Util {
 //    }
 
     //Variables globales de la aplicación
+
+    /**
+     *
+     */
     public static User CURRENT_USER = null;
+
+    /**
+     *
+     */
     public static ObservableList<User> USER_LIST = FXCollections.observableArrayList();
+
+    /**
+     *
+     */
     public static ObservableList<Airport> AIRPORT_LIST = FXCollections.observableArrayList();
+
+    /**
+     *
+     */
     public static ObservableList<Airplane> AIRPLANE_LIST = FXCollections.observableArrayList();
+
+    /**
+     *
+     */
     public static ObservableList<Reservation> RESERVATION_LIST = FXCollections.observableArrayList();
+
+    /**
+     *
+     */
     public static ObservableList<Flight> FLIGHT_LIST = FXCollections.observableArrayList();
     
+    /**
+     *
+     */
     public int contadorConfirmCode = 0;
 
 //    public static ObservableList<Sala> getSalas() {
@@ -67,13 +102,19 @@ public class Util {
 //        System.out.println(salas);
 //        return salas;
 //    }
+
+    /**
+     *
+     */
     
     public void aumentaContador(){
         System.out.print("Antes de aumentar el valor es: " + contadorConfirmCode);
         contadorConfirmCode++;
     }
     
-    
+    /**
+     *
+     */
     public void generateData(){
         
     }

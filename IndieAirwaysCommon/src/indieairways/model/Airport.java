@@ -18,9 +18,17 @@ public class Airport {
 
     private String city, airportCode;
 
+    /**
+     *
+     */
     public Airport() {
     }
 
+    /**
+     *
+     * @param airportCode
+     * @param city
+     */
     public Airport(String airportCode, String city) {
         this.airportCode = airportCode;
         this.city = city;

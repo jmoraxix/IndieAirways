@@ -24,9 +24,22 @@ public class Flight {
     private String date, departureTime, duration;
     private int cost;
 
+    /**
+     *
+     */
     public Flight() {
     }
 
+    /**
+     *
+     * @param airplane
+     * @param arrival
+     * @param departures
+     * @param date
+     * @param departureTime
+     * @param duration
+     * @param cost
+     */
     public Flight(Airplane airplane, final Airport arrival, final Airport departures, String date, String departureTime, String duration, int cost) {
         this.flightCode = getNextCode();
         this.airplane = airplane;

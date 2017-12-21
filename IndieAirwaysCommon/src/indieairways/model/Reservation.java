@@ -26,9 +26,19 @@ public class Reservation {
     /*
     @TODO Add sector to reservation
      */
+    /**
+     *
+     */
     public Reservation() {
     }
 
+    /**
+     *
+     * @param flight
+     * @param tickets
+     * @param luggage
+     * @param seats
+     */
     public Reservation(final Flight flight, int tickets, int luggage, String seats) {
         this.reservationCode = getNextCode();
         this.flight = flight;

@@ -51,6 +51,10 @@ public enum Airplane {
         return seatEconomy;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getTotal() {
         return this.seatEconomy + this.seatsBusiness + this.seatsFirst;
     }
