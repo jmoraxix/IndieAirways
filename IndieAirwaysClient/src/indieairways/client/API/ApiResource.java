@@ -22,7 +22,7 @@ import javax.ws.rs.core.Response;
 public abstract class ApiResource {
 
     protected WebTarget webTarget;
-    protected nClient client;
+    protected Client client;
     protected static final String BASE_URI = "http://localhost:8080/IndieAirways/webresources";
 
     public ApiResource(String path) {
@@ -34,7 +34,7 @@ public abstract class ApiResource {
 
     public abstract Response postJson(Object requestEntity) throws ClientErrorException;
 
-    public abstract Response deleteJson() throws ClientErrorException;
+    public abstract Response deleteJson(String param) throws ClientErrorException;
 
     public abstract <T> T getJson(Class<T> responseType, String param) throws ClientErrorException;
 
