@@ -25,6 +25,51 @@ import javafx.collections.ObservableList;
  * @author jmora
  */
 public class Util {
+    
+    private String name, user, password, email, birthday;
+    private User userIA;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+    
+    
 
     //Variables de las ventanas
 
@@ -110,6 +155,11 @@ public class Util {
     public void aumentaContador(){
         System.out.print("Antes de aumentar el valor es: " + contadorConfirmCode);
         contadorConfirmCode++;
+    }
+    
+    public void safeUser(String name, String user, String password, String email, String birthday){
+        userIA = new User(user, password, email, name, birthday);
+
     }
     
     /**

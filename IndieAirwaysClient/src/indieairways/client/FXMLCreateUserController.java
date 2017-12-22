@@ -10,6 +10,7 @@
  */
 package indieairways.client;
 
+import indieairways.util.Util;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -19,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -29,15 +31,17 @@ import javafx.scene.paint.Color;
  * @author Carlos
  */
 public class FXMLCreateUserController extends BaseController {
+    
+    
 
     @FXML
-    private Label labelName;
+    private TextField textFieldName;
     @FXML
-    private Label labelLastName;
+    private TextField textFieldLastName;
     @FXML
     private DatePicker datePBirth;
     @FXML
-    private Label labelEmail;
+    private TextField textFEmail;
     @FXML
     private PasswordField passField;
     @FXML
@@ -45,7 +49,7 @@ public class FXMLCreateUserController extends BaseController {
     @FXML
     private Label labelAlert;
     @FXML
-    private Label labelUserName;
+    private TextField textFUserName;
     @FXML
     private ImageView btnReturnLogin;
 
@@ -54,6 +58,7 @@ public class FXMLCreateUserController extends BaseController {
 
     private boolean correctData;
 
+    Util util;
     
      /**
      * It handles de event when the "create account" button is clicked
@@ -68,20 +73,20 @@ public class FXMLCreateUserController extends BaseController {
     private void handleCreateUser(ActionEvent event) {
         correctData = true;
 
-        if (labelName.getText().equals("")) {
+        if (textFieldName.getText().equals("")) {
             labelAlert.setText("You have to enter a Name.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             correctData = false;
         } else {
-            name = labelName.getText();
+            name = textFieldName.getText();
         }
 
-        if (labelLastName.getText().equals("")) {
+        if (textFieldLastName.getText().equals("")) {
             labelAlert.setText("You have to enter a Last Name.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             correctData = false;
         } else {
-            lastName = labelLastName.getText();
+            lastName = textFieldLastName.getText();
         }
 
         birth = datePBirth.getValue(); //Validar que no sea un día en el futuro
@@ -91,24 +96,24 @@ public class FXMLCreateUserController extends BaseController {
 //            correctData = false;
 //        }
 
-        if (labelUserName.getText().equals("")) { //Falta validar que no este siendo utilizado por alguien mas
+        if (textFUserName.getText().equals("")) { //Falta validar que no este siendo utilizado por alguien mas
             labelAlert.setText("You have to enter a Last Name.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             correctData = false;
         } else {
-            user = labelUserName.getText();
+            user = textFUserName.getText();
         }
 
-        if (labelEmail.getText().equals("")) {
+        if (textFEmail.getText().equals("")) {
             labelAlert.setText("You have to enter a Email.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             correctData = false;
-        } else if (!(labelEmail.getText().contains("@"))) {
+        } else if (!(textFEmail.getText().contains("@"))) {
             labelAlert.setText("You have to enter a correct Email.");
             labelAlert.setTextFill(Color.rgb(210, 39, 30));
             correctData = false;
         } else {
-            email = labelEmail.getText();
+            email = textFEmail.getText();
         }
 
         if (passField.getText().length() < 6) {
@@ -135,6 +140,7 @@ public class FXMLCreateUserController extends BaseController {
 
         btnCreate.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             if (correctData) {
+                util.safeUser(user, name, password, email, birth.toString());
                 application.gotoMenu();
             }
         });
