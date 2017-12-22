@@ -213,6 +213,35 @@ public class IndieAirwaysClient extends Application {
             Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
        }
     }
+    
+    /**
+     * It changes the stage to the FXMLMyFlights
+     * 
+     * @param none
+     */
+    public void gotoMyFlights(){
+        try {
+            FXMLMyFlightsController verMyFlights = (FXMLMyFlightsController) replaceSceneContent("FXMLMyFlights.fxml");
+            verMyFlights.setApp(this);
+        } catch (Exception ex) {
+            Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+    
+    /**
+     * It changes the stage to the FXMLMyInfo
+     * 
+     * @param none
+     */
+    public void gotoMyInfo(){
+        try {
+            FXMLMyInfoController verMyInfo = (FXMLMyInfoController) replaceSceneContent("FXMLMyInfo.fxml");
+            verMyInfo.setApp(this);
+        } catch (Exception ex) {
+            Logger.getLogger(IndieAirwaysClient.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+            
 
     /**
      * It replace each scene to the next one.
